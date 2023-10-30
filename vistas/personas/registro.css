@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor1{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.contenedor1 header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.contenedor1 header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
+.contenedor1 form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 490px; /*tamaño del fondo del registro*/
+    background-color: #f2f2f2; /* fonde del color de registro*/
+}
+.contenedor1 form .details {
+    margin-top: 30px;
+    background-color: white;
+}
+.contenedor1 form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: black;
+}
+.contenedor1 form .fields{
+    display: flex; /* para que se pongas en una sola fila y los type debajo del label*/
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* para que se ordenen*/
+    
+}
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-field label{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+}
+.input-field input{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+.input-field input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgb(0, 0,0,0.13);
+}
+.input-field input[type="date"]{
+    color: #707070;
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+}
+.contenedor1 form .nextBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: white;
+    margin: 25px 0;
+    background-color: #4070f4;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------*/
+button{
+    /*background: red;*/
+    width: 55px;
+    height: 55px;
+}
+h1{
+    text-align: center;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+table{
+    margin: 0 auto;
+}
+.footer{
+    padding: 5px;
+    border: none;
+}
+.numero{
+    font-size: 30px;
+    padding: 10px;
+}
+.footer button{
+    padding: 20px;
+    border: none;
+    margin: 0 auto;
+    transition: .5s;
+    border-radius: 5px;
+    text-align: center;
+}
+.footer button:hover{
+    background: #dc3545;
+}
+table button{
+    border-radius: 5px;
+    border-color: #9bc9a6;
+}
+/*table tr:hover{
+    background-color: red; //para marcar cada celda de un color
+    class="text-bg-danger p-3"
+}*/
+.top{
+    top: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.581);
+    display: grid;
+    place-items: center;
+    transition: .4s;
+}
+.close{
+    top: 5em;
+    left: 70%;
+}
+.translate{
+    transform: translateY(-100%);
+}
+.btnn{
+    width: 150px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 7px;
+    border: none;
+}
+.btnn1{
+    width: 150px;
+    height: 50px;
+    background-color: #dc3545;
+    border-radius: 7px;
+    border: none;
+}
+.btnn3{
+    width: 150px;
+    height: 50px;
+    background-color: #ffc107;
+    border-radius: 7px;
+    border: none;
+}
+.info{
+    border-radius: 5px;
+    border: none;
+}

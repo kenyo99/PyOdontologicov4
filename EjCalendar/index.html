@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.9/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+           headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+               // right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                right: 'timeGridWeek,timeGridDay'
+            },
+            language:'es',
+          // initialView: 'resourceTimelineWeek',
+          initialView: 'timeGridWeek',
+          selectable: true,
+          dateClick: function (info) {
+                alert('Clicked on: ' + info.dateStr);
+                alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                alert('Current view: ' + info.view.type);
+                // change the day's background color just for fun
+                info.dayEl.style.backgroundColor = 'red';
+            }
+          
+        });
+        calendar.render();
+      });
+
+    </script>
+  </head>
+  <body>
+    <div id='calendar'></div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+…or create a new repository on the command line
+echo "# PyOdontologico" >> README.md
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+
+git remote add origin https://github.com/WalterCoayla/PyOdontologico.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/WalterCoayla/PyOdontologico.git
+git branch -M main
+git push -u origin main
+
+
+git remote rm origin
+git remote set-url origin https://github.com/WalterCoayla/PyOdontologico01.git
+
+git remote add origin https://github.com/WalterCoayla/PyOdontologico01.git
+
+--------------------
+git branch + el nombre... para crear una rama
+git checkout + el nombre.... para moverse a esa rama
+git branch para ver en que estas posicionado 
+git merge + el nombre de la rama para unir trabajo
+git pull para refrescar el proyecto

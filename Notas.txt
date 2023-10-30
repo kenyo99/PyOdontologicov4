@@ -1,0 +1,7 @@
+ADMINISTRADOR:
+1: falta agregar pacientes el la tabla pacientes.
+2: falta que busque por dni al momento de agregar cita.
+
+PACIENTE:
+1: falta agregar cita al paciente
+2: falta que busque 

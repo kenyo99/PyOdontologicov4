@@ -1,0 +1,80 @@
+button{
+    /*background: red;*/
+    width: 55px;
+    height: 55px;
+}
+h1{
+    text-align: center;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+table{
+    margin: 0 auto;
+}
+.footer{
+    padding: 5px;
+    border: none;
+}
+.numero{
+    font-size: 30px;
+    padding: 10px;
+}
+.footer button{
+    padding: 20px;
+    border: none;
+    margin: 0 auto;
+    transition: .5s;
+    border-radius: 5px;
+    text-align: center;
+}
+.footer button:hover{
+    background: #dc3545;
+}
+table button{
+    border-radius: 5px;
+    border-color: #9bc9a6;
+}
+/*table tr:hover{
+    background-color: red; //para marcar cada celda de un color
+    class="text-bg-danger p-3"
+}*/
+.top{
+    top: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.581);
+    display: grid;
+    place-items: center;
+    transition: .4s;
+}
+.close{
+    top: 5em;
+    left: 70%;
+}
+.translate{
+    transform: translateY(-100%);
+}
+.btnn{
+    width: 150px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 7px;
+    border: none;
+}
+.btnn1{
+    width: 150px;
+    height: 50px;
+    background-color: #dc3545;
+    border-radius: 7px;
+    border: none;
+}
+.btnn3{
+    width: 150px;
+    height: 50px;
+    background-color: #ffc107;
+    border-radius: 7px;
+    border: none;
+}
+.info{
+    border-radius: 5px;
+    border: none;
+}
