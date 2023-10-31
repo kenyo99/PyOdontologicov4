@@ -63,6 +63,7 @@ class CtrlTrabajador extends Controlador{
                     "CtrlPaciente"=>"Lista de Pacientes",
                     "CtrlCita&accion=citasFull"=>"Mis Citas",
                     "CtrlPresupuesto"=>"Nuevo Presupuesto",
+                    'CtrlServicioOdontologico'=>'Agregar servicios',
                     "CtrlDiente"=>"Registro de Dientes",
                     "CtrlEstado_dental"=>"Estado Dental",
                     "CtrlPerfil"=>"Mi Perfil",

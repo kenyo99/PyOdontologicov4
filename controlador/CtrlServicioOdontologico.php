@@ -2,12 +2,10 @@
 session_start();
 require_once './core/Controlador.php';
 require_once './modelo/Servicio.php';
-class CtrlServicio extends Controlador
+class CtrlServicioOdontologico extends Controlador
 {
     public function index(){
-        $this->verificarLogin();
         $this->listar();
-
     }
     public function editar(){
         
@@ -21,7 +19,7 @@ class CtrlServicio extends Controlador
             'data'=>$miObj['data'][0]
         );
         # var_dump($datos);exit;
-        $this->mostrar('servicios/formulario.php',$datos);
+        $this->mostrar('servicioodontologico/formulario.php',$datos);
     }
     public function guardar(){
         $id=$_POST['id'];
@@ -40,7 +38,7 @@ class CtrlServicio extends Controlador
         $this->listar();
     }
     public function nuevo(){
-        $this->mostrar('servicios/formulario.php');
+        $this->mostrar('servicioodontologico/formulario.php');
     }
 
     public function eliminar(){
@@ -63,12 +61,12 @@ class CtrlServicio extends Controlador
         $msg = $respuesta['msg'];
         # var_dump($respuesta);exit;
         $datos = [
-                'titulo'=>"Servicios Generales ",
+                'titulo'=>"Servicios Odontológicos",
                 'data'=>$respuesta['data']
             ];
-        $contenido=$this->mostrar('servicios/mostrar.php',$datos,true);
+        $contenido=$this->mostrar('servicioodontologico/servicioodontologico.php',$datos,true);
         $data = [
-            'titulo'=>'Servicios Generales',
+            'titulo'=>'Servicios Odontológicos',
             'contenido'=>$contenido,
             'msg'=>$msg
         ];
