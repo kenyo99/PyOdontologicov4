@@ -1,14 +1,17 @@
+<?php
+$paciente = isset($data)?$data[0]['nombre']. " ". $data[0]['apellido']:'';
+$id = isset($data)?$data[0]['idpersonas']:'';
+
+?>
 <h1><?=$titulo?></h1>
 
-<a href="#" class="btn btn-success nuevo">
+<h3>Paciente: <?=$paciente?></h3>
+
+<a href="?ctrl=CtrlPaciente&accion=getServiciosOdontologicos&id=<?=$id?>" class="btn btn-success">
     <i class="fa fa-plus-circle"></i> 
-    Agregar Paciente
+    Nuevo Presupuesto
 </a>
 
-<a class="btn btn-danger nuevoPersona" href="#"> 
-    <i class="fa fa-plus-circle "> </i> 
-    Nuevo Paciente  
-</a>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
   
@@ -23,15 +26,9 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Dni</th>
-            <th>Direccion</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-            <th>Tipo</th>
-            
-           
+            <th>Numero</th>
+            <th>Fecha</th>
+            <th>Total</th>
             <th colspan="2">Opciones</th>
         </tr>
     </thead>
@@ -40,26 +37,14 @@
             if (is_array($data))
             foreach ($data as $d) { ?>
             <tr>
-                <td><?=$d['idpersonas']?></td>
-                <td><?=$d['nombre']?></td>
-                <td><?=$d['apellido']?></td>
-                <td><?=$d['dni']?></td>
-                <td><?=$d['direccion']?></td>
-                <td><?=$d['telefono']?></td> 
-                <td><?=$d['correo']?></td> 
-                <td><?=$d['tipo']?></td>  
-                
+                <td><?=$d['idpago']?></td>
+                <td><?=$d['numero']?></td>
+                <td><?=$d['fecha']?></td>
+                <td><?=$d['total']?></td>
 
                 <td>
-                    <a data-id="<?=$d["idpersonas"]?>" class="btn btn-primary editar" href="#" title="Editar">
+                    <a data-id="<?=$d["idpago"]?>" class="btn btn-primary editar" href="#" title="Ver Detalles">
                         <i class="fa-solid fa-pencil"></i>  </a>
-            
-                    <a class="btn btn-danger" href="?ctrl=CtrlHistorias&id=<?=$d["idpersonas"]?>" title="Ver Historias">
-                        <i class="fa-solid fa-landmark"></i>  </a>
-                    
-                    <a class="btn btn-warning" href="?ctrl=CtrlPaciente&accion=misPresupuestos&id=<?=$d["idpersonas"]?>" title="Ver Presupuesto">
-                        <i class="fa-regular fa-credit-card"></i> 
-                    </a>
                 </td>
                 
             </tr>

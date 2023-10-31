@@ -99,3 +99,42 @@ FROM citas c
 	INNER JOIN estados e ON c.idestados = e.idestados
     INNER JOIN v_pacientes p ON c.idpaciente = p.idpersonas
     INNER JOIN v_personal01 pl ON c.idpersonal = pl.idpersonas
+
+--------------------------------
+CREATE VIEW v_comprobante00 AS
+select
+    `pe`.`idpersonas` AS `idpersonas`,
+    `pe`.`nombre` AS `nombre`,
+    `pe`.`apellido` AS `apellido`,
+    `pe`.`dni` AS `dni`,
+    `pe`.`direccion` AS `direccion`,
+    `pe`.`fecha_nacimiento` AS `fecha_nacimiento`,
+    `pe`.`telefono` AS `telefono`,
+    `pe`.`correo` AS `correo`,
+    `pe`.`usuario` AS `usuario`,
+    `pe`.`clave` AS `clave`,
+    `pe`.`fecha_alta` AS `fecha_alta`,
+    `pe`.`estados_idestados` AS `estados_idestados`,
+    `pe`.`idsexos` AS `idsexos`,
+    `pa`.`idtipo_paciente` AS `idtipo_paciente`,
+    `t`.`tipo` AS `tipo`,
+    `s`.`nombre` AS `sexo`,
+    cp.idpago,
+    cp.numero,
+    cp.total,
+    cp.fecha
+from ( ( (
+                `dental99`.`personas` `pe`
+                join `dental99`.`paciente` `pa` on(
+                    `pa`.`idpersonas` = `pe`.`idpersonas`
+                )
+            )
+            join `dental99`.`tipo_paciente` `t` on(
+                `pa`.`idtipo_paciente` = `t`.`idtipo_paciente`
+            )
+        )
+        join `dental99`.`sexos` `s` on(`pe`.`idsexos` = `s`.`idsexos`)
+    )
+    LEFT join comprobante_pago cp ON cp.idpersonas = `pa`.`idpersonas`
+
+    

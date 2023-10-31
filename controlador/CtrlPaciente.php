@@ -105,7 +105,7 @@ class CtrlPaciente extends Controlador{
         $respuesta = $obj->listar01();
 
         $msg = $respuesta['msg'];
-        var_dump($respuesta);exit;
+       # var_dump($respuesta);exit;
         $datos = [
                 'titulo'=>"Paciente",
                 'data'=>$respuesta['data']
@@ -129,6 +129,52 @@ class CtrlPaciente extends Controlador{
         else
             echo json_encode($data);
     }
+    public function nuevoPresupuesto(){
+        $id = $_GET['id'];  #id de Paciente
+        echo "Nuevo presupuesto para ".$id;
+    }
+    public function misPresupuestos(){
+        require_once './modelo/Comprobante.php';
+        $id = $_GET['id'];  #id de Paciente
+        $obj = new Comprobante;
+        $respuesta = $obj->getPresupuestosXPaciente($id);
+        $msg = $respuesta['msg'];
 
+        $datos = [
+                'titulo'=>"Presupuestos",
+                'data'=>$respuesta['data']
+            ];
+        $contenido=$this->mostrar('pacientes/misPresupuestos.php',$datos,true);
+        $data = [
+            'titulo'=>'Presupuestos',
+            'contenido'=>$contenido,
+            'msg'=>$msg
+        ];
+
+        $this->mostrar('template.php',$data);
+
+    }
+    public function getServiciosOdontologicos(){
+        require_once './modelo/Servicio.php';
+        $id = $_GET['id'];  #id de Paciente
+        $obj = new Servicio;
+        $respuesta = $obj->listar();
+
+        $msg = $respuesta['msg'];
+
+        $datos = [
+                'titulo'=>"Servicios",
+                'id'=>$id,
+                'data'=>$respuesta['data']
+            ];
+        $contenido=$this->mostrar('pacientes/serviciosOdontologicos.php',$datos,true);
+        $data = [
+            'titulo'=>'Servicios',
+            'contenido'=>$contenido,
+            'msg'=>$msg
+        ];
+
+        $this->mostrar('template.php',$data);
+    }
     
 }
