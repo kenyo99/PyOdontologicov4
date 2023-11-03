@@ -164,14 +164,14 @@ class CtrlPaciente extends Controlador{
         $msg = $respuesta['msg'];
 
         $datos = [
-                'titulo'=>"Servicios",
+                'titulo'=>"Presupuestos",
                 'id'=>$id,
                 'nombre'=>$nombre,
                 'data'=>$respuesta['data']
             ];
         $contenido=$this->mostrar('pacientes/serviciosOdontologicos.php',$datos,true);
         $data = [
-            'titulo'=>'Servicios',
+            'titulo'=>'Presupuestos',
             'contenido'=>$contenido,
             'msg'=>$msg
         ];

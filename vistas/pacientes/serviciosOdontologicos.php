@@ -1,5 +1,8 @@
 
-<h1><?=$titulo?> para <span id="paciente"><?=$nombre?></span></h1>
+<h1><?=$titulo?></h1>
+<h3>
+    Para: <b><span id="paciente"><?=$nombre?></span></b>
+</h3>
 
 
 <style>
@@ -15,15 +18,11 @@
        
 </style>
 
-
-
-
-
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
   
-    <a class="btn btn-success" href="#" id="descargar"> 
+    <a class="btn btn-danger" href="#" id="descargar"> 
         <i class="fa-solid fa-file-arrow-down"></i>
-        Descargar  
+        Descargar pdf  
     </a>
 
 </div>
@@ -36,8 +35,7 @@
                         
                         <th>Id</th>
                         <th>Servicio</th>
-                        <!-- <th>Descripcion</th> -->
-                        <th>Precio</th>
+                        <th>Precio S/.</th>
                         <th>Cantidad</th>
                         <th colspan="2">Opciones</th>
                     </tr>
@@ -81,7 +79,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nombre</th>
-                                <th>Precio</th>
+                                <th>Precio S/.</th>
                                 <th width="100">Cant.</th>
                                 <th>Total</th>
                                 <th></th>
@@ -111,19 +109,11 @@
     </div>
     
 </div>
-    
-    <a href="?ctrl=CtrlPaciente&accion=getServiciosOdontologicos&id=<?=$id?>" class="btn btn-success">
-        <i class="fa fa-plus-circle"></i> 
-        Agregar
-    </a>
-    <br>
-    <a class="btn btn-light" href="?">
+
+    <a class="btn btn-info" href="?">
         <i class="fa-solid fa-rotate-left"></i>
         Retornar
     </a>
-
-   
-
 
     <script>
         let suma = 0.00;
@@ -134,10 +124,11 @@ $(document).ready(function (){
         let doc = new jsPDF();
         doc.setFontSize(20)
         doc.setTextColor(255, 0, 0) // Rojo
-        doc.text(40,40,"Proforma de Presupuesto")
+        doc.text(60,30,"Proforma de Presupuesto")
+
         doc.setFontSize(14)
         doc.setTextColor(0, 0, 0) // Rojo
-        doc.text(40,50,"Paciente: "+ $('#paciente').text())
+        doc.text(15,40,"Paciente: "+ $('#paciente').text())
         let now = new Date();
         doc.setFontSize(10)
         doc.text(180,25,now.toLocaleDateString());
@@ -162,17 +153,6 @@ $(document).ready(function (){
         }   */
     })  
     doc.save('Presupuesto.pdf'); 
-
-
-        /* doc.html($('#miPresupuesto'), {
-            callback: function (doc) {
-            doc.save('Presupuesto.pdf');
-            },
-            margin: [60, 60, 60, 60],
-            x: 32,
-            y: 50,
-        }); */
-
     });
 
     $("[id*='addPpto']").click(function(e) {
