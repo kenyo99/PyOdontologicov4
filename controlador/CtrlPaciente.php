@@ -157,6 +157,7 @@ class CtrlPaciente extends Controlador{
     public function getServiciosOdontologicos(){
         require_once './modelo/Servicio.php';
         $id = $_GET['id'];  #id de Paciente
+        $nombre = $_GET['n'];  #nombre de Paciente
         $obj = new Servicio;
         $respuesta = $obj->listar();
 
@@ -165,6 +166,7 @@ class CtrlPaciente extends Controlador{
         $datos = [
                 'titulo'=>"Servicios",
                 'id'=>$id,
+                'nombre'=>$nombre,
                 'data'=>$respuesta['data']
             ];
         $contenido=$this->mostrar('pacientes/serviciosOdontologicos.php',$datos,true);

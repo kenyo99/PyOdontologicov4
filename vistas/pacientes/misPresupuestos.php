@@ -7,7 +7,7 @@ $id = isset($data)?$data[0]['idpersonas']:'';
 
 <h3>Paciente: <?=$paciente?></h3>
 
-<a href="?ctrl=CtrlPaciente&accion=getServiciosOdontologicos&id=<?=$id?>" class="btn btn-success">
+<a href="?ctrl=CtrlPaciente&accion=getServiciosOdontologicos&id=<?=$id?>&n=<?=$paciente?>" class="btn btn-success">
     <i class="fa fa-plus-circle"></i> 
     Nuevo Presupuesto
 </a>
