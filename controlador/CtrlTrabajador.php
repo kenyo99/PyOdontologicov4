@@ -40,12 +40,28 @@ class CtrlTrabajador extends Controlador{
     public function mostrarDashboardCliente(){
         # $contenido = $this->mostrar('plantilla/home.php','',true);
         $_SESSION['menu']=[
+            [
+                'url'=>'CtrlCita&accion=citasPorPaciente',
+                'title'=>'Agendar Cita',
+                'icon'=>'fa-solid fa-pencil'
+            ],
+            [
+                'url'=>'CtrlCita',
+                'title'=>'Calendario de Citas',
+                'icon'=>'fa-regular fa-credit-card'
+            ],
+            [
+                'url'=>'CtrlServicio',
+                'title'=>'Otros Servicios',
+                'icon'=>'fa-regular fa-credit-card'
+            ],
+            [
+                'url'=>'CtrlPerfil',
+                'title'=>'Mi Perfil',
+                'icon'=>'fa-regular fa-credit-card'
+            ],
             
-            # 'CtrlAgregarCita'=>'Nueva Cita',
-            'CtrlCita&accion=citasPorPaciente'=>'Agendar Cita',
-            'CtrlCita'=>'Calendario de Citas',
-            'CtrlServicio'=>'Otros Servicios',
-            'CtrlPerfil'=>'Mi Perfil',
+           
         ];
         $data = [
             

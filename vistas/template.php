@@ -13,7 +13,12 @@
 
     <!-- Custom fonts for this template-->
 
-    <link rel="stylesheet" type="text/css" href="./assets/css/fullcalendar.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/fullcalendar.min.css"> -->
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.9/locales-all.global.min.js'></script>
+
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -123,8 +128,8 @@
     <script src="./assets/js/demo.js"></script>
 
     <script type="text/javascript" src="./assets/js/moment.min.js"></script>	
-    <script type="text/javascript" src="./assets/js/fullcalendar.min.js"></script>
-    <script src='./assets/js/locales/es.js'></script>
+    <!-- <script type="text/javascript" src="./assets/js/fullcalendar.min.js"></script>
+    <script src='./assets/js/locales/es.js'></script> -->
 
     <!--Script Odontograma
     <script src='./assets/tools/bootstrap/bootstrap.js'></script>

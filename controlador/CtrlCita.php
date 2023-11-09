@@ -32,20 +32,15 @@ class CtrlCita extends Controlador
         $this->mostrar('template.php',$data);
 
     }
-    /* private function verificarLogin(){
-        if (!isset($_SESSION['usuario'])){
-            header("Location: ?");
-            exit();
-        }
-    } */
+
     public function reservarCita(){
-        # var_dump($_POST);
+        
         $obj = new Cita (
                 null, $_POST['fecha_inicio'],
                 $_SESSION['id'], $_POST['evento']);
         $obj->nuevo();
-        
-        $this->index();
+        echo "insertado";
+        /* $this->index(); */
 
     }
     public function nuevo(){
@@ -126,5 +121,16 @@ class CtrlCita extends Controlador
 
         $this->mostrar('template.php',$data);
 
+    }
+    public function citasFull01(){
+        
+        $obj= new Cita();
+
+        $respuesta = $obj->getCitasForJSON();
+
+        # print_r($respuesta['data']);
+        echo json_encode($respuesta['data'],JSON_UNESCAPED_UNICODE);
+        die();
+        
     }
 }

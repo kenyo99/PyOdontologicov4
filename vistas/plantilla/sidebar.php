@@ -29,12 +29,12 @@
 
             <?php 
             if (isset($_SESSION['menu']))
-            foreach ($_SESSION['menu'] as $key => $value):            ?>
+            foreach ($_SESSION['menu'] as $menu):            ?>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="?ctrl=<?=$key?>" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="?ctrl=<?=$menu['url']?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span><?=$value?></span>
+                    <i class="<?=$menu['icon']?>"></i>
+                    <span><?=$menu['title']?></span>
                 </a>
                 
             </li>

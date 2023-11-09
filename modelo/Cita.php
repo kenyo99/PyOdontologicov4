@@ -21,7 +21,7 @@ class Cita extends Modelo{
         $this->_estado = $estado;
         $this->_fecha = $fecha;
         $this->_paciente = $paciente;
-        $this->_personal = 4;
+        $this->_personal = 2;
         $this->_observaciones = $obs;
 
         parent::__construct($this->_tabla);
@@ -71,6 +71,18 @@ class Cita extends Modelo{
     public function getCitas(){
         $hoy = getdate();
         $sql = "Select * from ". $this->_vista 
+            . " where fecha > '".$hoy['year']."-".$hoy['mon']."-".$hoy['mday']."'";
+        # var_dump($sql);exit;
+        $this->_sql->setSQL($sql);
+
+        return $this->_bd->ejecutar($this->_sql);
+    }
+    public function getCitasForJSON(){
+        $hoy = getdate();
+        $sql = "Select 
+                idcitas as id, fecha as start,
+                fin as end,
+                observaciones as title from ". $this->_vista 
             . " where fecha > '".$hoy['year']."-".$hoy['mon']."-".$hoy['mday']."'";
         # var_dump($sql);exit;
         $this->_sql->setSQL($sql);

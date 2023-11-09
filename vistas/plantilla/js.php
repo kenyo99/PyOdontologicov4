@@ -302,7 +302,7 @@
 
         }
 
-$("#calendar").fullCalendar({
+/* $("#calendar").fullCalendar({
     header: {
       left: "prev,next today",
       center: "title",
@@ -405,7 +405,7 @@ $("#calendar").fullCalendar({
       $("#modalUpdateEvento").modal();
     },
 
-  });
+  }); */
   
 //Oculta mensajes de Notificacion
   setTimeout(function () {
