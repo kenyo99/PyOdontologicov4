@@ -45,20 +45,20 @@ class CtrlTrabajador extends Controlador{
                 'title'=>'Agendar Cita',
                 'icon'=>'fa-solid fa-pencil'
             ],
-            [
+            /* [
                 'url'=>'CtrlCita',
                 'title'=>'Calendario de Citas',
                 'icon'=>'fa-regular fa-credit-card'
-            ],
+            ], */
             [
-                'url'=>'CtrlServicio',
+                'url'=>'CtrlServicio&acccion=listar',
                 'title'=>'Otros Servicios',
-                'icon'=>'fa-regular fa-credit-card'
+                'icon'=>'fa-brands fa-servicestack'
             ],
             [
                 'url'=>'CtrlPerfil',
                 'title'=>'Mi Perfil',
-                'icon'=>'fa-regular fa-credit-card'
+                'icon'=>'fa-solid fa-user'
             ],
             
            
@@ -75,14 +75,46 @@ class CtrlTrabajador extends Controlador{
         switch ($tipo) {
             case 'DOCTOR':
                 $menu=[
+
+                    [
+                        'url'=>'CtrlPaciente&accion=listar',
+                        'title'=>'Lista de Pacientes',
+                        'icon'=>'fa-solid fa-pencil'
+                    ],
+                    [
+                        'url'=>'CtrlCita&accion=citasFull',
+                        'title'=>'Mis Citas',
+                        'icon'=>'fa-regular fa-calendar-check'
+                    ],
+                    [
+                        'url'=>'CtrlServicioOdontologico&accion=listar',
+                        'title'=>'Agregar servicios',
+                        'icon'=>'fa-brands fa-servicestack'
+                    ],
+                    [
+                        'url'=>'CtrlDiente&accion=listar',
+                        'title'=>'Registro de Dientes',
+                        'icon'=>'fa-solid fa-tooth'
+                    ],
+                    [
+                        'url'=>'CtrlEstado_dental&accion=listar',
+                        'title'=>'Estado Dental',
+                        'icon'=>'fa-solid fa-teeth'
+                    ],
+                    [
+                        'url'=>'CtrlPerfil&accion=listar',
+                        'title'=>'Mi Perfil',
+                        'icon'=>'fa-solid fa-user'
+                    ],
+
                     
-                    "CtrlPaciente"=>"Lista de Pacientes",
+                    /*"CtrlPaciente"=>"Lista de Pacientes",
                     "CtrlCita&accion=citasFull"=>"Mis Citas",
                     "CtrlPresupuesto"=>"Nuevo Presupuesto",
                     'CtrlServicioOdontologico'=>'Agregar servicios',
                     "CtrlDiente"=>"Registro de Dientes",
                     "CtrlEstado_dental"=>"Estado Dental",
-                    "CtrlPerfil"=>"Mi Perfil",
+                    "CtrlPerfil"=>"Mi Perfil",*/
 
                     ];
                 break;

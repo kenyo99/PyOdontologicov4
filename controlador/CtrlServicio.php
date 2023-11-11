@@ -5,7 +5,6 @@ require_once './modelo/Servicio.php';
 class CtrlServicio extends Controlador
 {
     public function index(){
-        $this->verificarLogin();
         $this->listar();
 
     }
