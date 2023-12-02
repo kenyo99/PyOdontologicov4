@@ -6,7 +6,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">DENTAL<sup>1</sup></div>
+                <div class="sidebar-brand-text mx-3">Dental<sup>1</sup></div>
             </a>
 
             <!-- Divider -->

@@ -16,7 +16,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Registro de Clientes</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">N° 010</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">N° 100</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -34,7 +34,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Ingreso</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">S/. 000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">S/. 3000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">N° 000</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">N° 1000</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -81,7 +81,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Chats Sin Antender</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">00</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -103,7 +103,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Agenda</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h1>hola soy mitwar</h1>
+                                    <h1>Calendario</h1>
                                     <div>
                                         <table class="cbr00">
                                             <td>

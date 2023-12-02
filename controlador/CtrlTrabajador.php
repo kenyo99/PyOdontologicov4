@@ -122,8 +122,67 @@ class CtrlTrabajador extends Controlador{
             default:    # Para el ADMINISTRADOR
                 $menu=[
                     # "CtrlPrincipal"=>"Inicio",
-                    "CtrlHistorias"=>"Historias clinicas",
-                    "CtrlOdontograma"=>"Odontogramas",
+                    [
+                        'url'=>'CtrlHistorias&accion=listar',
+                        'title'=>'Lista de Historias',
+                        'icon'=>'fa-solid fa-pencil'
+                    ],
+                    [
+                        'url'=>'CtrlOdontograma&accion=listar',
+                        'title'=>'Odontogramas',
+                        'icon'=>'fa-solid fa-tooth'
+                    ],
+                    [
+                        'url'=>'CtrlEstado&accion=listar',
+                        'title'=>'Estado Paciente',
+                        'icon'=>'fa-solid fa-clipboard'
+                    ],
+                    [
+                        'url'=>'CtrlPersona&accion=listar',
+                        'title'=>'Registar Personas',
+                        'icon'=>'fa-solid fa-address-card'
+                    ],
+                    [
+                        'url'=>'CtrlPaciente&accion=listar',
+                        'title'=>'Registro Paciente',
+                        'icon'=>'fa-solid fa-person'
+                    ],
+                    [
+                        'url'=>'CtrlPersonal&accion=listar',
+                        'title'=>'Registro Personal',
+                        'icon'=>'fa-solid fa-users'
+                    ],
+                    [
+                        'url'=>'CtrlFormaPago&accion=listar',
+                        'title'=>'Forma de Pago',
+                        'icon'=>'fa-solid fa-money-bill'
+                    ],
+                    [
+                        'url'=>'CtrlDiente&accion=listar',
+                        'title'=>'Registro de Dientes',
+                        'icon'=>'fa-solid fa-teeth'
+                    ],
+                    [
+                        'url'=>'CtrlEstado_dental&accion=listar',
+                        'title'=>'Estado Dental',
+                        'icon'=>'fa-solid fa-tooth'
+                    ],
+                    [
+                        'url'=>'CtrlServicio&accion=listar',
+                        'title'=>'Servicios Odontologicos',
+                        'icon'=>'fa-brands fa-servicestack'
+                    ],
+                    [
+                        'url'=>'CtrlCita&accion=listar',
+                        'title'=>'Agregar Cita',
+                        'icon'=>'fa-solid fa-earth-americas'
+                    ],
+                    [
+                        'url'=>'CtrlPerfil&accion=listar',
+                        'title'=>'Perfil',
+                        'icon'=>'fa-solid fa-user'
+                    ],
+                    /*"CtrlOdontograma"=>"Odontogramas",
                     "CtrlEstado"=>"Estados",
                     "CtrlPersona"=>"Registro Personas",
                     "CtrlPaciente"=>"Aregar Paciente",
@@ -134,7 +193,7 @@ class CtrlTrabajador extends Controlador{
                     "CtrlEstado_dental"=>"Estado Dental",
                     "CtrlServicio"=>"Servicios Odontologicos",
                     "CtrlCita"=>"Agendar cita",
-                    "CtrlPerfil"=>"Perfil",
+                    "CtrlPerfil"=>"Perfil",*/
 
                     ];
                 break;
