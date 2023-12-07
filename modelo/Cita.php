@@ -46,7 +46,63 @@ class Cita extends Modelo{
             "idpersonal"=>"'$this->_personal'",
             
         );
-        return $this->insert($datos);
+         $this->insert($datos);
+         /* Generar Ticket */
+         return $this->generarTicket();
+
+         
+
+    }
+    private function generarTicket(){
+        /** Insertamos en Comprobante Pago */
+        $sql = "Select getNumeroTicket() as numero";
+        $this->setSql($sql);
+        $nroTicket = $this->ejecutarSql()['data'][0]['numero'];
+        // echo $nroTicket;exit;
+
+        $sql ="Insert into comprobante_pago
+                (numero, fecha,idcomprobante,idtipo_comprobantes,idpagos,
+                idpersonas, idpersonas1)
+                VALUES 
+                ('$nroTicket', CURRENT_TIMESTAMP(), 0, 0, 0,
+                '$this->_paciente', '$this->_personal')
+            ";
+
+            $this->setSql($sql);
+            $this->ejecutarSql();
+        /** Insertamos en Detalle Comprobante Pago */
+        $sql = "Select idpago from comprobante_pago where numero='$nroTicket'";
+        $this->setSql($sql);
+        $nroComprobante = $this->ejecutarSql()['data'][0]['idpago'];
+        // Recuperamos el PRECIO
+        $sql = "Select precio from servicios_odontologicos where idservicio=0";
+        $this->setSql($sql);
+        $precio = $this->ejecutarSql()['data'][0]['precio'];
+        // Insertamos el detalle
+        $sql = "Insert into detalles_comprobante 
+                (cantidad, idpago, idservicio, precio)
+                VALUES
+                (1, $nroComprobante, 0, $precio)
+            ";
+        $this->setSql($sql);
+        $this->ejecutarSql();
+        /** actualizar en total en Comprobante Pago */
+        $sql = "Update comprobante_pago set total=$precio where idpago=$nroComprobante";
+        $this->setSql($sql);
+        $this->ejecutarSql();
+        // Retornar el NÚMERO DE TICKET
+        //return $nroTicket;
+        $sql ="Select idcitas from citas where idpaciente=$this->_paciente order by fecha desc limit 1";
+        $this->setSql($sql);
+        $idCitas = $this->ejecutarSql()['data'][0]['idcitas'];
+        // Actualizamos o ENLAZAMOS las citas con el comprobante de pago.
+        $sql = "Update citas set idpago=$nroComprobante where idcitas=$idCitas";
+        $this->setSql($sql);
+        $this->ejecutarSql();
+
+        $sql = "Select * from v_ticketsPago where idpago=$nroComprobante";
+        $this->setSql($sql);
+        return $this->ejecutarSql()['data'][0];
     }
     public function editar(){
         $datos = array(

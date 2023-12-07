@@ -178,5 +178,8 @@ class CtrlPaciente extends Controlador{
 
         $this->mostrar('template.php',$data);
     }
-    
+    public function generarTicket(){
+        var_dump($_POST);
+        var_dump($_GET);
+    }
 }

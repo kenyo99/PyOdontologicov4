@@ -8,6 +8,7 @@ $fecha = $hoy['year']."-".$hoy['mon']."-".$dia;
 
 document.addEventListener('DOMContentLoaded', function() {
   let myModal = new bootstrap.Modal(document.getElementById('myModal'));
+  let myModalTicket = new bootstrap.Modal(document.getElementById('myModalTicket'));
   let myForm = document.getElementById('myForm');
 
     var calendarEl = document.getElementById('calendar');
@@ -50,9 +51,15 @@ document.addEventListener('DOMContentLoaded', function() {
         http.send(new FormData(myForm));
         http.onreadystatechange = function () {
           if (this.readyState==4 && this.status == 200){
-           // console.log(this.responseText);
+            let data = JSON.parse(this.responseText);
+            console.log(data);
+
+
            calendar.refetchEvents();
             myModal.hide();
+            document.getElementById('nroTicket').innerHTML = data.numero;
+            document.getElementById('fechaCita').innerHTML = data.fechaCita;
+            myModalTicket.show();
 
           } 
           } 
@@ -94,6 +101,32 @@ document.addEventListener('DOMContentLoaded', function() {
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
     	</div>
 	</form>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="myModalTicket"  tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ticket de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+		<div class="form-group">
+      <h1>Ticket N°: <span id="nroTicket"></span></h1>
+			<h3>Fecha de Cita: <span id="fechaCita"></span></h3>
+		</div>
+    
+	   <div class="modal-footer">
+      	<button type="button" class="btn btn-success">Descargar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+    	</div>
+	
       
     </div>
   </div>

@@ -137,4 +137,20 @@ from ( ( (
     )
     LEFT join comprobante_pago cp ON cp.idpersonas = `pa`.`idpersonas`
 
-    
+    ----------------
+    CREATE VIEW `v_ticketsPago` AS
+SELECT
+    cp.*,
+    dc.precio,
+    dc.cantidad,
+    dc.idservicio,
+    so.nombre as nombreServicio,
+    so.descripcion,
+    pe.nombre as nombrePaciente,
+    pe.apellido as apellidoPaciente,
+    pe.dni
+FROM comprobante_pago cp
+    INNER JOIN detalles_comprobante dc ON dc.idpago = cp.idpago
+    INNER JOIN servicios_odontologicos so ON so.idservicio = dc.idservicio
+    INNER JOIN paciente p ON p.idpersonas = cp.idpersonas
+    INNER JOIN personas pe ON pe.idpersonas = p.idpersonas

@@ -18,14 +18,7 @@
        
 </style>
 
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  
-    <a class="btn btn-danger" href="#" id="descargar"> 
-        <i class="fa-solid fa-file-arrow-down"></i>
-        Descargar pdf  
-    </a>
 
-</div>
 <div class="content">
     <div class="row">
         <div class="col-7">
@@ -74,6 +67,22 @@
     
         <div class="col-5">
                     <h3>Mi Presupuesto</h3>
+                    <form id="miPpto" action="?ctrl=CtrlPaciente&accion=generarTicket&idPaciente=<?=$id?>" method="post">
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-info" title="Generar Ticket">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                            Generar Ticket
+                        </button>
+                        
+                        <a class="btn btn-danger" href="#" id="descargar" title="Descargar PDF"> 
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                            Descargar pdf  
+                        </a>
+
+                    </div>
+                    
+                    
                     <table id="miPresupuesto" class="table">
                         <thead>
                             <tr>
@@ -104,6 +113,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    </form>
 
         </div>
     </div>
@@ -118,6 +128,7 @@
     <script>
         let suma = 0.00;
 $(document).ready(function (){	
+    
     
     $('#descargar').click(function (e) { 
         e.preventDefault();
@@ -176,13 +187,15 @@ $(document).ready(function (){
 });
 
 function agregarFila(id,servicio,precio,cantidad){
-    let p = parseFloat(precio).toFixed(2)
-    let total = p * cantidad
+    let precio2 = parseFloat(precio).toFixed(2)
+    let total = precio2 * cantidad
     total = total.toFixed(2);
     var nuevaFila = '<tr id="ppto">'+
-        '<td>' + id + '</td>'+
+        '<td>' + id + 
+        '<input name="id[]" type="text" hidden value="'+id+'">' +
+        '</td>'+
         '<td>' + servicio + '</td>'+
-        '<td>' + p + '</td>'+
+        '<td>' + precio2 + '</td>'+
         '<td>' + cantidad + '</td>'+
         '<td class="subtotal">' + total + '</td>'+
         '<td> <button type="button" id="retirarPpto" class="btn btn-outline-danger" title="Retirar">-</button></td>'

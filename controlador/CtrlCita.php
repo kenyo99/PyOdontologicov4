@@ -38,8 +38,9 @@ class CtrlCita extends Controlador
         $obj = new Cita (
                 null, $_POST['fecha_inicio'],
                 $_SESSION['id'], $_POST['evento']);
-        $obj->nuevo();
-        echo "insertado";
+        $data = $obj->nuevo();
+        echo json_encode($data);
+
         /* $this->index(); */
 
     }
