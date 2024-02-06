@@ -138,7 +138,7 @@ from ( ( (
     LEFT join comprobante_pago cp ON cp.idpersonas = `pa`.`idpersonas`
 
     ----------------
-    CREATE VIEW `v_ticketsPago` AS
+CREATE VIEW `v_ticketsPago` AS
 SELECT
     cp.*,
     dc.precio,

@@ -4,7 +4,7 @@ require_once './assets/Helper.php';
 $id = isset ($data['idhistorias_clinicas'])?$data['idhistorias_clinicas']:"";
 $observacion = isset ($data['observaciones'])?$data['observaciones']:"";
 $alergias = isset ($data['alergias'])?$data['alergias']:"";
-$alergias = isset ($data['enfermedades'])?$data['enfermedades']:"";
+$enfermedad = isset ($data['enfermedades'])?$data['enfermedades']:"";
 $fecha = isset ($data['fecha'])?$data['fecha']:"";
 $gestacion = isset ($data['gestacion'])?$data['gestacion']:"";
 $iddoctor = isset ($data['iddoctor'])?$data['iddoctor']:"";
@@ -18,6 +18,8 @@ $sexo = isset ($data['sexo'])?$data['sexo']:"";
 $tipo = isset ($data['tipo'])?$data['tipo']:"";
 $dni = isset ($data['dni'])?$data['dni']:"";
 $telefono = isset ($data['telefono'])?$data['telefono']:"";
+$nombre = isset ($_GET['nombre'])?$_GET['nombre']:'';
+$apellido = isset ($_GET['apellido'])?$_GET['apellido']:'';
 
 $edad = Helper::getEdad($fecha_nacimiento);
 

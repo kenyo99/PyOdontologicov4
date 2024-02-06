@@ -53,14 +53,14 @@ class CtrlHistorias extends Controlador
 
     }
 
-    public function listar($id){
+    public function listar($id=null){
 
         $obj= new Historias();
         
         $respuesta = $obj->listar($id);
 
         $msg = $respuesta['msg'];
-        # var_dump($respuesta);exit;
+        //var_dump($respuesta);exit;
         $datos = [
                 'titulo'=>"Historias Clinicas",
                 'data'=>$respuesta['data']

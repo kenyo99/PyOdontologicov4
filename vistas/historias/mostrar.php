@@ -2,7 +2,7 @@
 <?php require_once './vistas/plantilla/dashboard.php'; ?>
 
 <h1>Paciente: <?=$data[0]['nomPaciente']?> <?=$data[0]['apePaciente']?></h1>
-<a href="#" class="btn btn-success nuevo">
+<a href="#" class="btn btn-success nuevaHistoria">
     <i class="fa fa-plus-circle"></i> 
     Nuevo Registro
 </a>
@@ -102,3 +102,29 @@
     </div>
 </div>
 </div>
+ 
+<script type="text/javascript">
+  $(function () {
+     
+   'use strict';
+
+   $('.nuevaHistoria').click( function(){ 
+            let linkNuevo=$(this).html();
+            // alert(linkNuevo)
+            $(this).html('<i class="fa fa-spinner"></i> Cargando...');
+            $('.modal-title').html('Nuevo Registro');
+            $.ajax({
+                url:'index.php',
+                type:'get',
+                data:{'ctrl':'<?=isset($_GET['ctrl'])?$_GET['ctrl']:''?>','accion':'nuevo','nombre':'<?=$data[0]['nomPaciente']?> ','apellido':'<?=$data[0]['apePaciente']?>' }
+            }).done(function(datos){
+                $('.nuevo').html(linkNuevo);
+                $('#body-form').html(datos);
+                $('#modal-form').modal('show');
+            }).fail(function(){
+                $('.nuevo').html(linkNuevo);
+                alert("error");
+            });
+        });
+  });
+</script>
