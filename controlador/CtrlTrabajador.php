@@ -127,16 +127,11 @@ class CtrlTrabajador extends Controlador{
                         'title'=>'Lista de Historias',
                         'icon'=>'fa-solid fa-pencil'
                     ],
-                    [
+                    /*[
                         'url'=>'CtrlOdontograma&accion=listar',
                         'title'=>'Odontogramas',
                         'icon'=>'fa-solid fa-tooth'
-                    ],
-                    [
-                        'url'=>'CtrlEstado&accion=listar',
-                        'title'=>'Estado Paciente',
-                        'icon'=>'fa-solid fa-clipboard'
-                    ],
+                    ],*/
                     [
                         'url'=>'CtrlPersona&accion=listar',
                         'title'=>'Registar Personas',
@@ -146,6 +141,11 @@ class CtrlTrabajador extends Controlador{
                         'url'=>'CtrlPaciente&accion=listar',
                         'title'=>'Registro Paciente',
                         'icon'=>'fa-solid fa-person'
+                    ],
+                    [
+                        'url'=>'CtrlCita&accion=listar',
+                        'title'=>'Agregar Cita',
+                        'icon'=>'fa-solid fa-earth-americas'
                     ],
                     [
                         'url'=>'CtrlPersonal&accion=listar',
@@ -172,10 +172,11 @@ class CtrlTrabajador extends Controlador{
                         'title'=>'Servicios Odontologicos',
                         'icon'=>'fa-brands fa-servicestack'
                     ],
+                    
                     [
-                        'url'=>'CtrlCita&accion=listar',
-                        'title'=>'Agregar Cita',
-                        'icon'=>'fa-solid fa-earth-americas'
+                        'url'=>'CtrlEstado&accion=listar',
+                        'title'=>'Estado Paciente',
+                        'icon'=>'fa-solid fa-clipboard'
                     ],
                     [
                         'url'=>'CtrlPerfil&accion=listar',

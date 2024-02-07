@@ -20,6 +20,14 @@ git remote set-url origin https://github.com/WalterCoayla/PyOdontologico01.git
 
 git remote add origin https://github.com/WalterCoayla/PyOdontologico01.git
 
+-------------------
+git init
+
+git add .
+
+git commit -m "Nombre de la Actualización"
+
+git push -u origin master
 --------------------
 git branch + el nombre... para crear una rama
 git checkout + el nombre.... para moverse a esa rama

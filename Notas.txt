@@ -5,3 +5,8 @@ ADMINISTRADOR:
 PACIENTE:
 1: falta agregar cita al paciente
 2: falta que busque 
+
+---------------------------
+1. error al registrar una cita en cliente.
+2. coregir el editar de mis citas
+3. 

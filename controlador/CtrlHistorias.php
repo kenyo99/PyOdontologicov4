@@ -13,7 +13,7 @@ class CtrlHistorias extends Controlador
         
         $id = $_GET['id'];
         # echo "Editando....".$id;
-        $obj= new Diente($id);
+        $obj= new Historias($id);
 
         $miObj = $obj->getOne();
         # var_dump($miObj);exit;
@@ -21,14 +21,14 @@ class CtrlHistorias extends Controlador
             'data'=>$miObj['data'][0]
         );
         # var_dump($datos);exit;
-        $this->mostrar('dientes/formulario.php',$datos);
+        $this->mostrar('historias/formulario.php',$datos);
     }
     public function guardar(){
         $id=$_POST['id'];
         $ubicacion=$_POST['ubicacion'];
         $nombre=$_POST['nombre'];
         
-        $obj= new Diente($id, $ubicacion, $nombre);
+        $obj= new Historias($id, $ubicacion, $nombre);
 
         if ($id==''){
             $respuesta = $obj->nuevo();
@@ -45,7 +45,7 @@ class CtrlHistorias extends Controlador
     public function eliminar(){
 
         $id = $_GET['id'];
-        $obj= new Diente($id);
+        $obj= new Historias($id);
 
         $respuesta = $obj->eliminar();
 
