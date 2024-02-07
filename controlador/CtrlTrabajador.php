@@ -122,11 +122,11 @@ class CtrlTrabajador extends Controlador{
             default:    # Para el ADMINISTRADOR
                 $menu=[
                     # "CtrlPrincipal"=>"Inicio",
-                    [
+                    /*[
                         'url'=>'CtrlHistorias&accion=listar',
                         'title'=>'Lista de Historias',
                         'icon'=>'fa-solid fa-pencil'
-                    ],
+                    ],*/
                     /*[
                         'url'=>'CtrlOdontograma&accion=listar',
                         'title'=>'Odontogramas',

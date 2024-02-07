@@ -1,15 +1,24 @@
 <?php
 session_start();
 require_once './core/Controlador.php';
+require_once './modelo/Paciente.php';
 require_once './modelo/Historias.php';
 
 class CtrlHistorias extends Controlador
 {
     public function index(){
         $id = isset($_GET['id'])?$_GET['id']:null;
-        $this->listar($id);
+        if ($id==null){
+            // No se seleccionó un PACIENTE
+            header('Location:?ctrl=CtrlPaciente&accion=listar');
+            die();
+        } else
+            $this->listar($id);
     }
     public function editar(){
+        $id = $_GET['idPaciente'];
+        $paciente = (new Paciente($id))->getOne()['data'][0];
+        
         
         $id = $_GET['id'];
         # echo "Editando....".$id;
@@ -18,17 +27,23 @@ class CtrlHistorias extends Controlador
         $miObj = $obj->getOne();
         # var_dump($miObj);exit;
         $datos = array(
-            'data'=>$miObj['data'][0]
+            'data'=>$miObj['data'][0],
+            'paciente'=>$paciente
         );
         # var_dump($datos);exit;
         $this->mostrar('historias/formulario.php',$datos);
     }
     public function guardar(){
         $id=$_POST['id'];
-        $ubicacion=$_POST['ubicacion'];
-        $nombre=$_POST['nombre'];
-        
-        $obj= new Historias($id, $ubicacion, $nombre);
+        $enfermedades=$_POST['enfermedades'];
+        $alergias=$_POST['alergias'];
+        $sensibilidad=$_POST['sensibilidad'];
+        $presion=$_POST['presion'];
+        $gestacion=$_POST['gestacion'];
+        $temperatura=$_POST['temperatura'];
+        #var_dump($id,$presion,'enfermedades',$enfermedades,$temperatura); exit;
+         
+        $obj= new Historias($id,$enfermedades,$alergias,$sensibilidad,$presion,$gestacion,$temperatura);
 
         if ($id==''){
             $respuesta = $obj->nuevo();
@@ -39,7 +54,13 @@ class CtrlHistorias extends Controlador
         $this->listar();
     }
     public function nuevo(){
-        $this->mostrar('historias/formulario.php');
+        $id = $_GET['idPaciente'];
+        $paciente = (new Paciente($id))->getOne()['data'][0];
+        $datos = [
+            'paciente'=>$paciente
+        ];
+
+        $this->mostrar('historias/formulario.php',$datos);
     }
 
     public function eliminar(){
@@ -53,8 +74,16 @@ class CtrlHistorias extends Controlador
 
     }
 
-    public function listar($id=null){
+    public function listarXPaciente($id){
+/**
+ * Recuperar el paciente
+ */
+    $paciente = (new Paciente($id))->getOne()['data'][0];
+    // var_dump($paciente);exit;
 
+ /**
+ * Recuperar la historia del paciente
+ */
         $obj= new Historias();
         
         $respuesta = $obj->listar($id);
@@ -63,6 +92,7 @@ class CtrlHistorias extends Controlador
         //var_dump($respuesta);exit;
         $datos = [
                 'titulo'=>"Historias Clinicas",
+                'paciente'=>$paciente,
                 'data'=>$respuesta['data']
             ];
         $contenido=$this->mostrar('historias/mostrar.php',$datos,true);
@@ -75,4 +105,42 @@ class CtrlHistorias extends Controlador
         $this->mostrar('template.php',$data);
 
     }
+    public function listar($id=null){
+        // $id = isset($_GET['id'])?$_GET['id']:null;
+        if ($id==null){
+            // No se seleccionó un PACIENTE
+            header('Location:?ctrl=CtrlPaciente&accion=listar');
+            die();
+        } else {
+        /**
+         * Recuperar el paciente
+         */
+            $paciente = (new Paciente($id))->getOne()['data'][0];
+            // var_dump($paciente);exit;
+
+        /**
+         * Recuperar la historia del paciente
+         */
+                $obj= new Historias();
+                
+                $respuesta = $obj->listar($id);
+
+                $msg = $respuesta['msg'];
+                //var_dump($respuesta);exit;
+                $datos = [
+                        'titulo'=>"Historias Clinicas",
+                        'paciente'=>$paciente,
+                        'data'=>$respuesta['data']
+                    ];
+                $contenido=$this->mostrar('historias/mostrar.php',$datos,true);
+                $data = [
+                    'titulo'=>'Historias Clinicas',
+                    'contenido'=>$contenido,
+                    'msg'=>$msg
+                ];
+
+                $this->mostrar('template.php',$data);
+
+            }
+        }
 }

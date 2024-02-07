@@ -1,7 +1,12 @@
+<?php
+ $nombre =  isset($paciente['nombre'])?$paciente['nombre']:'';
+ $apellido =  isset($paciente['apellido'])?$paciente['apellido']:'';
+
+?>
 <h1><?=$titulo?></h1>
 <?php require_once './vistas/plantilla/dashboard.php'; ?>
 
-<h1>Paciente: <?=$data[0]['nomPaciente']?> <?=$data[0]['apePaciente']?></h1>
+<h1>Paciente: <?=$nombre?> <?=$apellido?></h1>
 <a href="#" class="btn btn-success nuevaHistoria">
     <i class="fa fa-plus-circle"></i> 
     Nuevo Registro
@@ -40,7 +45,7 @@
         <td><?=$d['observaciones']?></td>
 
         <td>
-            <a data-id="<?=$d["idhistorias_clinicas"]?>" class=" btn btn-success editar" href="#" title="Editar">
+            <a data-id="<?=$d["idhistorias_clinicas"]?>" class=" btn btn-success editarHistoria" href="#" title="Editar">
                 <i class="fa-solid fa-pencil"></i>
             </a>
 
@@ -116,13 +121,28 @@
             $.ajax({
                 url:'index.php',
                 type:'get',
-                data:{'ctrl':'<?=isset($_GET['ctrl'])?$_GET['ctrl']:''?>','accion':'nuevo','nombre':'<?=$data[0]['nomPaciente']?> ','apellido':'<?=$data[0]['apePaciente']?>' }
+                data:{'ctrl':'<?=isset($_GET['ctrl'])?$_GET['ctrl']:''?>','idPaciente':'<?=$_GET['id']?>','accion':'nuevo'}
             }).done(function(datos){
-                $('.nuevo').html(linkNuevo);
+                $('.nuevaHistoria').html(linkNuevo);
                 $('#body-form').html(datos);
                 $('#modal-form').modal('show');
             }).fail(function(){
-                $('.nuevo').html(linkNuevo);
+                $('.nuevaHistoria').html(linkNuevo);
+                alert("error");
+            });
+        });
+
+        $('.editarHistoria').click( function(){ 
+            var id= $(this).data('id');
+            $('.modal-title').html('Editando el Reg.: '+id);
+            $.ajax({
+                url:'index.php',
+                type:'get',
+                data:{'ctrl':'<?=isset($_GET['ctrl'])?$_GET['ctrl']:'';?>','accion':'editar','id':id,'idPaciente':'<?=$_GET['id']?>'}
+            }).done(function(datos){
+                $('#body-form').html(datos);
+                $('#modal-form').modal('show');
+            }).fail(function(){
                 alert("error");
             });
         });

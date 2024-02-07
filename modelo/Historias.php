@@ -3,6 +3,7 @@ require_once './core/Modelo.php';
 class Historias extends Modelo{
     private $_id;
     private $_fecha;
+    private $_observaciones;
     private $_idPaciente;
     private $_idDoctor;
     private $_enfermedades;
@@ -11,27 +12,27 @@ class Historias extends Modelo{
     private $_sensibilidad;
     private $_temperatura;
     private $_gestacion;
-    private $_observaciones;
 
     private $_tabla = 'historias_clinicas';
     private $_vista = 'v_historias_clinicas';
 
-    public function __construct($id=null, $fecha=null
+    public function __construct($id=null, $fecha=null,$_observaciones=null
                 , $idPaciente=null, $idDoctor=null, $enfermedades=null
                 , $alergias=null, $presion=null, $sensibilidad=null
-                , $temperatura=null, $obs=null,$gestacion=null){
+                , $temperatura=null,$gestacion=null){
 
         $this->_id = $id;
         $this->_fecha = $fecha;
-        $this->_idPaciente = $idPaciente;
-        $this->_idDoctor = $idDoctor;
+        $this->_observaciones = $_observaciones;
+        $this->_idPaciente = '12';
+        $this->_idDoctor = '1';
         $this->_enfermedades = $enfermedades;
         $this->_alergias = $alergias;
         $this->_presion = $presion;
         $this->_sensibilidad = $sensibilidad;
         $this->_temperatura = $temperatura;
         $this->_gestacion = $gestacion;
-        $this->_observaciones = $obs;
+        
 
         parent::__construct($this->_tabla);
 
@@ -58,9 +59,19 @@ class Historias extends Modelo{
 
     public function nuevo(){
         $datos = array(
-            "ubicacion"=>"'$this->_ubicacion'",
-            "nombre"=>"'$this->_estado'"
+            "fecha"=>"'$this->_fecha'",
+            "observaciones"=>"'$this->_observaciones'",
+            "idpaciente"=>"'$this->_idPaciente'",
+            "iddoctor"=>"'$this->_idDoctor'",
+            "enfermedades"=>"'$this->_enfermedades'",
+            "alergias"=>"'$this->_alergias'",
+            "sensibilidad"=>"'$this->_sensibilidad'",
+            "presion"=>"'$this->_presion'",
+            "gestacion"=>"'$this->_gestacion'",
+            "temperatura"=>"'$this->_temperatura'",
         );
+        var_dump($datos); exit;
+        $this->setTabla('historias_clinicas');
         return $this->insert($datos);
     }
     public function editar(){

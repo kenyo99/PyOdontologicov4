@@ -123,14 +123,15 @@ class CtrlCita extends Controlador
         $this->mostrar('template.php',$data);
 
     }
+    
     public function citasFull01(){
         
         $obj= new Cita();
 
         $respuesta = $obj->getCitasForJSON();
 
-        # print_r($respuesta['data']);
-        echo json_encode($respuesta['data'],JSON_UNESCAPED_UNICODE);
+        print_r($respuesta['data']);
+        #echo json_encode($respuesta['data'],JSON_UNESCAPED_UNICODE);
         die();
         
     }
