@@ -54,7 +54,7 @@ $id = isset($data)?$data[0]['idpersonas']:'';
 
     </table>
     <br>
-    <a class="btn btn-light" href="?">
+    <a class="btn btn-light" onclick="location.href='.mostrar'">
         <i class="fa-solid fa-rotate-left"></i>
         Retornar
     </a>

@@ -39,7 +39,7 @@ class Diente extends Modelo{
         );
         
         $wh = "iddientes = $this->_id";
-
+        #var_dump($wh,$datos);exit;
         return $this->update($wh, $datos);
 
     }

@@ -32,7 +32,7 @@
             <td><?=$d['observaciones']?></td>
             <td><?=$d['NomEstado']?></td>
             <td><?=$d['NomPaciente']?> <?=$d['ApePaciente']?></td>
-            <td><?=$d['NomPersonal']?></td>
+            <td>Dr. <?=$d['NomPersonal']?></td>
 
             <td>
                 <a data-id="<?=$item?>" class="btn btn-danger imprimirCita" href="#">

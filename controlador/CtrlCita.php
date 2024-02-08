@@ -123,8 +123,8 @@ class CtrlCita extends Controlador
         $this->mostrar('template.php',$data);
 
     }
-    
-    public function citasFull01(){
+
+    /*public function citasFull01(){
         
         $obj= new Cita();
 
@@ -133,6 +133,11 @@ class CtrlCita extends Controlador
         print_r($respuesta['data']);
         #echo json_encode($respuesta['data'],JSON_UNESCAPED_UNICODE);
         die();
+        
+    }*/
+    public function citasFull01(){
+        
+        $this->mostrar('citas/formularioCita.php');
         
     }
 }

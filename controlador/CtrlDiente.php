@@ -24,9 +24,9 @@ class CtrlDiente extends Controlador
         $id=$_POST['id'];
         $ubicacion=$_POST['ubicacion'];
         $nombre=$_POST['nombre'];
-        
+        #var_dump($id,$nombre); exit;
         $obj= new Diente($id, $ubicacion, $nombre);
-        #var_dump($obj);
+        #var_dump($obj); exit;
         if ($id==''){
             $respuesta = $obj->nuevo();
         } else {    # Editar

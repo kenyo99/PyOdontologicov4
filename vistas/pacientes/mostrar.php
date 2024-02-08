@@ -37,10 +37,13 @@
     </thead>
     <tbody>
         <?php
+        $i = 1;
             if (is_array($data))
-            foreach ($data as $d) { ?>
+            foreach ($data as $d) { 
+                    $item = $i++;
+            ?>
             <tr>
-                <td><?=$d['idpersonas']?></td>
+                <td><?=$item?></td>
                 <td><?=$d['nombre']?></td>
                 <td><?=$d['apellido']?></td>
                 <td><?=$d['dni']?></td>
@@ -72,7 +75,7 @@
 
     </table>
     <br>
-    <a class="btn btn-light" href="?">
+    <a class="btn btn-light">
         <i class="fa-solid fa-rotate-left"></i>
         Retornar
     </a>
