@@ -16,7 +16,7 @@ class CtrlCita extends Controlador
         $respuesta = $obj->getCitas();
 
         $msg = $respuesta['msg'];
-        # var_dump($respuesta);exit;
+        // var_dump($respuesta);exit;
         $datos = [
                 'titulo'=>"Registro de dientes",
                 'data'=>$respuesta['data']
@@ -28,7 +28,7 @@ class CtrlCita extends Controlador
             'data'=>$respuesta['data'],
             'msg'=>$msg
         ];
-
+        // var_dump($data);exit;
         $this->mostrar('template.php',$data);
 
     }

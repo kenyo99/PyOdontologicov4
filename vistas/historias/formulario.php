@@ -9,7 +9,7 @@ $fecha = isset ($data['fecha'])?$data['fecha']:"";
 $gestacion = isset ($data['gestacion'])?$data['gestacion']:"";
 $iddoctor = isset ($data['iddoctor'])?$data['iddoctor']:"";
 
-$idpaciente = isset ($data['idpaciente'])?$data['idpaciente']:$_GET['idPaciente'];
+$idPaciente = isset ($data['idpaciente'])?$data['idpaciente']:$_GET['idPaciente'];
 
 $presion = isset ($data['presion'])?$data['presion']:"";
 $sensibilidad = isset ($data['sensibilidad'])?$data['sensibilidad']:"";
@@ -61,7 +61,7 @@ $editar = ($id != '')?1:0;  # 1: Editar / 0: Nuevo
         <div class="row">
             <div class="col">
                 <input type="text" hidden class="form-control" name="id" value="<?=$id?>">
-                <input type="text" hidden class="form-control" name="idPaciente" value="<?=$idPaciente?>">
+                <input type="text"  class="form-control" name="idPaciente" value="<?=$idPaciente?>">
                 <b> Nombre: </b>
                 <span id="nombre"><?=$nombre?></span>
             </div>

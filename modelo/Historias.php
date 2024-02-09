@@ -24,8 +24,8 @@ class Historias extends Modelo{
         $this->_id = $id;
         $this->_fecha = $fecha;
         $this->_observaciones = $_observaciones;
-        $this->_idPaciente = '14';
-        $this->_idDoctor = '16';
+        $this->_idPaciente = $idPaciente;
+        $this->_idDoctor = $idDoctor;
         $this->_enfermedades = $enfermedades;
         $this->_alergias = $alergias;
         $this->_presion = $presion;
@@ -70,7 +70,7 @@ class Historias extends Modelo{
             "gestacion"=>"'$this->_gestacion'",
             "temperatura"=>"'$this->_temperatura'",
         );
-        #var_dump($datos); exit;
+        //var_dump($datos); exit;
         $this->setTabla('historias_clinicas');
         return $this->insert($datos);
     }

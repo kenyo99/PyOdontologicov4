@@ -179,7 +179,16 @@ class CtrlPaciente extends Controlador{
         $this->mostrar('template.php',$data);
     }
     public function generarTicket(){
-        var_dump($_POST);
-        var_dump($_GET);
+        echo "POST<br>";
+        //var_dump($_POST);
+        echo "<br>GET<br>";
+       // var_dump($_GET);
+        require_once './modelo/Comprobante.php';
+       
+        $obj = new Comprobante(null,$_GET['idPaciente'],16,$_POST['ppto']);
+
+        $obj->nuevo($_POST);
+        echo "echo";
+
     }
 }

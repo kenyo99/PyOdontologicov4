@@ -68,20 +68,18 @@
         <div class="col-5">
                     <h3>Mi Presupuesto</h3>
                     <form id="miPpto" action="?ctrl=CtrlPaciente&accion=generarTicket&idPaciente=<?=$id?>" method="post">
-
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="submit" class="btn btn-info" title="Generar Ticket">
-                            <i class="fa-solid fa-file-arrow-down"></i>
-                            Generar Ticket
-                        </button>
-                        
-                        <a class="btn btn-danger" href="#" id="descargar" title="Descargar PDF"> 
-                            <i class="fa-solid fa-file-arrow-down"></i>
-                            Descargar pdf  
-                        </a>
-
-                    </div>
-                    
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-info" title="Generar Ticket">
+                                <i class="fa-solid fa-file-arrow-down"></i>
+                                Generar Ticket
+                            </button>
+                            
+                            <a class="btn btn-danger" href="#" id="descargar" title="Descargar PDF"> 
+                                <i class="fa-solid fa-file-arrow-down"></i>
+                                Descargar pdf  
+                            </a>
+    
+                        </div>
                     
                     <table id="miPresupuesto" class="table">
                         <thead>
@@ -104,6 +102,7 @@
                                 <td colspan="4" align="right">
                                     <b>
                                     Total Ppto:
+                                    <input id="totalPpto1" hidden value="0" name="ppto">
                                     </b>
                                 </td>
                                 <td>
@@ -193,6 +192,8 @@ function agregarFila(id,servicio,precio,cantidad){
     var nuevaFila = '<tr id="ppto">'+
         '<td>' + id + 
         '<input name="id[]" type="text" hidden value="'+id+'">' +
+        '<input name="cantidad[]" type="text" hidden value="'+cantidad+'">' +
+        '<input name="precio[]" type="text" hidden value="'+precio2+'">' +
         '</td>'+
         '<td>' + servicio + '</td>'+
         '<td>' + precio2 + '</td>'+
@@ -210,6 +211,8 @@ function agregarFila(id,servicio,precio,cantidad){
         });
 
         $('#total').html(sum.toFixed(2)) 
+
+        $('#totalPpto1').val(sum)
         
 
    $("[id*='retirarPpto']").on('click',function() {
@@ -225,6 +228,8 @@ function agregarFila(id,servicio,precio,cantidad){
         });
 
         $('#total').html(sum.toFixed(2))  
+        $('#totalPpto1').val(sum)
+        
     });
 
 }

@@ -41,9 +41,23 @@ class CtrlHistorias extends Controlador
         $presion=$_POST['presion'];
         $gestacion=$_POST['gestacion'];
         $temperatura=$_POST['temperatura'];
+        $fecha=$_POST['fecharec'];
+        $observaciones=$_POST['observaciones'];
+        $idPaciente=$_POST['idPaciente'];
+        //var_dump($_POST); exit;
         #var_dump($id,$presion,'enfermedades',$enfermedades,$temperatura); exit;
          
-        $obj= new Historias($id,$enfermedades,$alergias,$sensibilidad,$presion,$gestacion,$temperatura);
+        $obj= new Historias($id,$fecha, $observaciones
+                ,$idPaciente, '16', $enfermedades
+                ,$alergias,$sensibilidad,$presion
+                ,$temperatura,$gestacion);
+        /* $id=null, $fecha=null,$_observaciones=null
+                , $idPaciente=null, $idDoctor=null, $enfermedades=null
+
+                , $alergias=null, $presion=null, $sensibilidad=null
+                , $temperatura=null,$gestacion=null */
+
+
 
         if ($id==''){
             $respuesta = $obj->nuevo();
@@ -51,7 +65,7 @@ class CtrlHistorias extends Controlador
             $respuesta = $obj->editar();
         }
         
-        $this->listar();
+        $this->listar($idPaciente);
     }
     public function nuevo(){
         $id = $_GET['idPaciente'];

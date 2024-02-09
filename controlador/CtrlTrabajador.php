@@ -45,11 +45,11 @@ class CtrlTrabajador extends Controlador{
                 'title'=>'Agendar Cita',
                 'icon'=>'fa-solid fa-pencil'
             ],
-            /* [
+            [
                 'url'=>'CtrlCita',
                 'title'=>'Calendario de Citas',
                 'icon'=>'fa-regular fa-credit-card'
-            ], */
+            ],
             [
                 'url'=>'CtrlServicio&acccion=listar',
                 'title'=>'Otros Servicios',

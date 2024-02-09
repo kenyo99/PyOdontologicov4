@@ -128,8 +128,8 @@
     <script src="./assets/js/demo.js"></script>
 
     <script type="text/javascript" src="./assets/js/moment.min.js"></script>	
-    <!-- <script type="text/javascript" src="./assets/js/fullcalendar.min.js"></script>
-    <script src='./assets/js/locales/es.js'></script> -->
+    <script type="text/javascript" src="./assets/js/fullcalendar.min.js"></script>
+    <script src='./assets/js/locales/es.js'></script>
 
     <!--Script Odontograma
     <script src='./assets/tools/bootstrap/bootstrap.js'></script>
