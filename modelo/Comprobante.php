@@ -14,7 +14,7 @@ class Comprobante extends Modelo{
     private $_tabla = 'comprobante_pago';
     private $_vista = 'v_comprobante00';
 
-    public function __construct($id=null,$idPaciente=null, $idPersonal=null,$total){
+    public function __construct($id=null,$idPaciente=null, $idPersonal=null,$total=0){
 
                     
         $this->_id = $id;

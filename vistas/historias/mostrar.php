@@ -66,7 +66,8 @@
 
 </table>
 <br>
-<a class="btn btn-light" href="?ctrl=CtrlPaciente&accion=listar">
+    
+    <a class="btn btn-info" href="?ctrl=CtrlPaciente&accion=listar">
         <i class="fa-solid fa-rotate-left"></i>
         Retornar
     </a>

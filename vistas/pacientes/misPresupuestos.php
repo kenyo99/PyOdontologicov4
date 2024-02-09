@@ -40,7 +40,7 @@ $id = isset($data)?$data[0]['idpersonas']:'';
                 <td><?=$d['idpago']?></td>
                 <td><?=$d['numero']?></td>
                 <td><?=$d['fecha']?></td>
-                <td><?=$d['total']?></td>
+                <td>S/. <?=$d['total']?></td>
 
                 <td>
                     <a data-id="<?=$d["idpago"]?>" class="btn btn-primary editar" href="#" title="Ver Detalles">
@@ -54,7 +54,7 @@ $id = isset($data)?$data[0]['idpersonas']:'';
 
     </table>
     <br>
-    <a class="btn btn-light" onclick="location.href='.mostrar'">
+    <a class="btn btn-info" href="?ctrl=CtrlPaciente&accion=listar">
         <i class="fa-solid fa-rotate-left"></i>
         Retornar
     </a>

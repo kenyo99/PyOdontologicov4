@@ -98,6 +98,32 @@ class CtrlPaciente extends Controlador{
 
         $this->mostrar('template.php',$data);
     }
+
+    //listar presupuesto
+
+    public function listarProsupuesto(){
+        
+        require_once './modelo/Presupuesto.php';
+        
+        $obj= new Presupuesto();
+
+        $respuesta = $obj->listar();
+
+        $msg = $respuesta['msg'];
+        # var_dump($respuesta);exit;
+        $datos = [
+                'titulo'=>"Paciente",
+                'data'=>$respuesta['data']
+            ];
+        $contenido=$this->mostrar('pacientes/misPresupuestos.php',$datos,true);
+        $data = [
+            'titulo'=>'Paciente',
+            'contenido'=>$contenido,
+            'msg'=>$msg
+        ];
+
+        $this->mostrar('template.php',$data);
+    }
     public function listar01(){
 
         $obj= new Paciente();
@@ -136,7 +162,7 @@ class CtrlPaciente extends Controlador{
     public function misPresupuestos(){
         require_once './modelo/Comprobante.php';
         $id = $_GET['id'];  #id de Paciente
-        $obj = new Comprobante;
+        $obj = new Comprobante();
         $respuesta = $obj->getPresupuestosXPaciente($id);
         $msg = $respuesta['msg'];
 
@@ -185,7 +211,7 @@ class CtrlPaciente extends Controlador{
        // var_dump($_GET);
         require_once './modelo/Comprobante.php';
        
-        $obj = new Comprobante(null,$_GET['idPaciente'],16,$_POST['ppto']);
+        $obj = new Comprobante(null,$_GET['idPaciente'],0,$_POST['ppto']);
 
         $obj->nuevo($_POST);
         echo "echo";

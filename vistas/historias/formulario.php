@@ -61,7 +61,7 @@ $editar = ($id != '')?1:0;  # 1: Editar / 0: Nuevo
         <div class="row">
             <div class="col">
                 <input type="text" hidden class="form-control" name="id" value="<?=$id?>">
-                <input type="text"  class="form-control" name="idPaciente" value="<?=$idPaciente?>">
+                <input type="text" hidden class="form-control" name="idPaciente" value="<?=$idPaciente?>">
                 <b> Nombre: </b>
                 <span id="nombre"><?=$nombre?></span>
             </div>

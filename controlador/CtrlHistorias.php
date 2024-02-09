@@ -48,7 +48,7 @@ class CtrlHistorias extends Controlador
         #var_dump($id,$presion,'enfermedades',$enfermedades,$temperatura); exit;
          
         $obj= new Historias($id,$fecha, $observaciones
-                ,$idPaciente, '16', $enfermedades
+                ,$idPaciente, '2', $enfermedades
                 ,$alergias,$sensibilidad,$presion
                 ,$temperatura,$gestacion);
         /* $id=null, $fecha=null,$_observaciones=null
