@@ -4,7 +4,7 @@ $id = isset($data)?$data[0]['idpersonas']:'';
 
 ?>
 <h1><?=$titulo?></h1>
-
+<?php require_once './vistas/plantilla/dashboard.php'; ?>
 <h3>Paciente: <?=$paciente?></h3>
 
 <a href="?ctrl=CtrlPaciente&accion=getServiciosOdontologicos&id=<?=$id?>&n=<?=$paciente?>" class="btn btn-success">

@@ -31,6 +31,11 @@ class Comprobante extends Modelo{
         $this->setSql($sql);
         return $this->ejecutarSql();
     }
+    public function getEstadisticasXPaciente($id){
+        $sql = "Select * from v_estadisticapacientes where idpersonas=$id";
+        $this->setSql($sql);
+        return $this->ejecutarSql();
+    }
 
 
     /* public function listar(){
@@ -103,30 +108,7 @@ class Comprobante extends Modelo{
         return $this->ejecutarSql()['data'][0]['idpago'];
     }
 
-   /* public function guardarPaciente($idPersona,$tipo){
-        # parent::nuevo();
-        $datos = [
-            'idpersonas'=>$idPersona,
-            'idtipo_paciente'=>"$tipo",
-        ];
-        # var_dump($datos);exit;
-        $this->setTabla('paciente');
-
-        return $this->insert($datos);
-
-    }
-    
-    public function editar(){
-         parent::editar();
-        $datos = [
-            'idpersonas'=>$this->_id,
-            'idtipo_paciente'=>"$this->_tipo",
-        ];
-        $this->setTabla('paciente');
-        $wh = "idpersonas=$this->_id";
-        return $this->update($wh,$datos);
-
-    } */
+   
     
     
 }

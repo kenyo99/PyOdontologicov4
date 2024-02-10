@@ -1,7 +1,7 @@
 <?php
     $nroPacientes=0;
-    $montoMensual= number_format(1580,2);
-    $nroAtenciones = 0;
+    $monto= isset($estadisticas[0]['monto'])?number_format($estadisticas[0]['monto'],2):'0.00';
+    $nroAtenciones = isset($estadisticas[0]['cantidad'])?$estadisticas[0]['cantidad']:'0';
     //$porcentajeAtenciones = 
 
 ?>
@@ -33,7 +33,7 @@
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                         Ingreso</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">S/. <?=$montoMensual?></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">S/. <?=$monto?></div>
                 </div>
                 <div class="col-auto">
                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

@@ -147,7 +147,14 @@ class Cita extends Modelo{
     }
     public function listarPorPaciente($idPaciente){
         $sql = "Select * from ". $this->_vista 
-        . " where idpaciente = $idPaciente";
+        . " where idpaciente = $idPaciente order by fecha desc limit 0,6";
+
+        $this->_sql->setSQL($sql);
+        
+        return $this->ejecutarSql();
+    }
+    public function getEstidisticaXPaciente($id){
+        $sql = "Select * from v_estadisticas_citas where idpaciente=$id";
 
         $this->_sql->setSQL($sql);
         

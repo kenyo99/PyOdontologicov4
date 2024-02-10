@@ -23,18 +23,16 @@
 
             <td>
                 <a data-id="<?=$d["iddientes"]?>" class="btn btn-success editar" href="#" title="Editar">
-                    <i class="fa-solid fa-pencil"></i> Editar </a>
+                    <i class="fa-solid fa-pencil"></i></a>
                 
                 <a data-id="<?=$d["iddientes"]?>" data-nombre="<?=$d["nombre"]?>" class="btn btn-danger eliminar" href="#" title="Elimnar">
-                    <i class="fa fa-trash"></i> Eliminar </a>
+                    <i class="fa fa-trash"></i></a>
                 </td>
             
         </tr>
     
     <?php    }
     ?>
-        
-
     </table>
     <br>
     <a class="btn btn-light" href="?">

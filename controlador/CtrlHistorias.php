@@ -131,6 +131,10 @@ class CtrlHistorias extends Controlador
          */
             $paciente = (new Paciente($id))->getOne()['data'][0];
             // var_dump($paciente);exit;
+            require_once ('./modelo/Comprobante.php');
+            $obj = new Comprobante();
+
+            $estadisticas = $obj->getEstadisticasXPaciente($id);
 
         /**
          * Recuperar la historia del paciente
@@ -144,6 +148,7 @@ class CtrlHistorias extends Controlador
                 $datos = [
                         'titulo'=>"Historias Clinicas",
                         'paciente'=>$paciente,
+                        'estadisticas'=>$estadisticas['data'],
                         'data'=>$respuesta['data']
                     ];
                 $contenido=$this->mostrar('historias/mostrar.php',$datos,true);

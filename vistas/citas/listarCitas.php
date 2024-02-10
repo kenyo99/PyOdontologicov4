@@ -1,5 +1,6 @@
     <center><h1 id="titulo"><?=$titulo?></h1></center>
-
+    <?php require_once './vistas/plantilla/dashboard01.php'; ?>
+    <h3>Paciente: <?=$paciente?></h3>
     <a href="#" class="btn btn-success nuevo">
         <i class="fa fa-plus-circle"></i> 
         Registrar nueva Cita
@@ -50,7 +51,7 @@
 
     </table>
     <br>
-    <a class="btn btn-light" href="?">
+    <a class="btn btn-light" href="?ctrl=CtrlPaciente&accion=listar">
         <i class="fa-solid fa-rotate-left"></i>
         Retornar
     </a>

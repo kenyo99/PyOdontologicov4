@@ -20,11 +20,11 @@
             <td><?=$d['nombre']?></td>
 
             <td>
-                <a data-id="<?=$d["idestados"]?>" class="editar" href="#">
-                    <i class="bi bi-pencil-square"></i> Editar </a>
-                / 
-                <a data-id="<?=$d["idestados"]?>" data-nombre="<?=$d["nombre"]?>" class="eliminar" href="#">
-                    <i class="bi bi-trash"></i> Eliminar </a>
+                <a data-id="<?=$d["idestados"]?>" class="btn btn-success editar" href="#">
+                    <i class="fa-solid fa-pencil"></i>  </a>
+                
+                <a data-id="<?=$d["idestados"]?>" data-nombre="<?=$d["nombre"]?>" class="btn btn-danger eliminar" href="#">
+                    <i class="fa fa-trash"></i>  </a>
                 </td>
             
         </tr>

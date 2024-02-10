@@ -44,6 +44,7 @@
             ?>
             <tr>
                 <td><?=$item?></td>
+                <td hidden ><?=$d['idpersonas']?></td>
                 <td><?=$d['nombre']?></td>
                 <td><?=$d['apellido']?></td>
                 <td><?=$d['dni']?></td>
@@ -63,7 +64,7 @@
                     <a class="btn btn-warning" href="?ctrl=CtrlPaciente&accion=misPresupuestos&id=<?=$d["idpersonas"]?>" title="Ver Presupuesto">
                         <i class="fa-regular fa-credit-card"></i> 
                     </a>
-                    <a class="btn btn-info" href="?ctrl=CtrlCita&accion=citasFull01&id=<?=$d["idpersonas"]?>" title="Agregar Cita">
+                    <a class="btn btn-info" href="?ctrl=CtrlCita&accion=verCitas&id=<?=$d["idpersonas"]?>" title="Ver Citas">
                         <i class="fa-regular fa-calendar-check"></i> 
                     </a>
                 </td>

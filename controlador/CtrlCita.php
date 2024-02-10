@@ -100,6 +100,42 @@ class CtrlCita extends Controlador
         }
 
     }
+    public function verCitas(){
+        if (isset($_GET['id'])){    # Si se ha LOGUEADO
+
+            $obj = new Cita;
+            $respuesta = $obj->listarPorPaciente($_GET['id']);
+            $estadistica = $obj->getEstidisticaXPaciente($_GET['id']);
+            
+            require_once './modelo/Paciente.php';
+            $obj = new Paciente($_GET['id']);
+            $paciente = $obj->getOne()['data'][0];
+
+            
+            $msg = $respuesta['msg'];
+        # var_dump($respuesta);exit;
+        $datos = [
+                'titulo'=>"Mis Citas",
+                'data'=>$respuesta['data'],
+                'estadisticas'=>$estadistica['data'],
+                'paciente'=>$paciente['nombre'] . ' '.$paciente['apellido']
+            ];
+        $contenido=$this->mostrar('citas/listarCitas.php',$datos,true);
+        $data = [
+            'titulo'=>'Mis Citas',
+            'contenido'=>$contenido,
+            'msg'=>$msg,
+            'data'=>$respuesta['data']
+        ];
+
+        $this->mostrar('template.php',$data);
+
+
+        }else{
+            echo "No te has registrado";
+        }
+
+    }
     public function citasFull(){
         
         $obj= new Cita();

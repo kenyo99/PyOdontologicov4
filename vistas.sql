@@ -154,3 +154,21 @@ FROM comprobante_pago cp
     INNER JOIN servicios_odontologicos so ON so.idservicio = dc.idservicio
     INNER JOIN paciente p ON p.idpersonas = cp.idpersonas
     INNER JOIN personas pe ON pe.idpersonas = p.idpersonas
+
+
+
+-----------------------------------
+CREATE view v_EstadisticaPacientes
+AS
+Select cp.idpersonas, sum(cp.total) as monto, count(cp.idpago) as cantidad
+from comprobante_pago cp 
+GROUP by cp.idpersonas
+
+
+
+-------------------------------------------
+create view v_estadisticas_citas
+AS
+SELECT citas.idpaciente,count(citas.idpaciente) as cantidad
+FROM citas
+GROUP BY citas.idpaciente;

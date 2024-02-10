@@ -164,18 +164,20 @@ class CtrlPaciente extends Controlador{
         $id = $_GET['id'];  #id de Paciente
         $obj = new Comprobante();
         $respuesta = $obj->getPresupuestosXPaciente($id);
+        $estadisticas = $obj->getEstadisticasXPaciente($id);
         $msg = $respuesta['msg'];
 
         $datos = [
                 'titulo'=>"Presupuestos",
-                'data'=>$respuesta['data']
+                'data'=>$respuesta['data'],
+                'estadisticas'=>$estadisticas['data']
             ];
-        $contenido=$this->mostrar('pacientes/misPresupuestos.php',$datos,true);
-        $data = [
-            'titulo'=>'Presupuestos',
-            'contenido'=>$contenido,
-            'msg'=>$msg
-        ];
+            $contenido=$this->mostrar('pacientes/misPresupuestos.php',$datos,true);
+            $data = [
+                'titulo'=>'Presupuestos',
+                'contenido'=>$contenido,
+                'msg'=>$msg
+            ];
 
         $this->mostrar('template.php',$data);
 
@@ -205,16 +207,18 @@ class CtrlPaciente extends Controlador{
         $this->mostrar('template.php',$data);
     }
     public function generarTicket(){
-        echo "POST<br>";
+        //echo "POST<br>";
         //var_dump($_POST);
-        echo "<br>GET<br>";
+        //echo "<br>GET<br>";
        // var_dump($_GET);
+       $id = $_GET['idPaciente'];
         require_once './modelo/Comprobante.php';
        
-        $obj = new Comprobante(null,$_GET['idPaciente'],0,$_POST['ppto']);
+        $obj = new Comprobante(null,$id,0,$_POST['ppto']);
 
         $obj->nuevo($_POST);
-        echo "echo";
+        //echo "echo";
+        header("Location:?ctrl=CtrlPaciente&accion=misPresupuestos&id=$id");
 
     }
 }
