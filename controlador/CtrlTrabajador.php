@@ -144,7 +144,7 @@ class CtrlTrabajador extends Controlador{
                     ],
                     [
                         'url'=>'CtrlCita&accion=listar',
-                        'title'=>'Agregar Cita',
+                        'title'=>'Citas',
                         'icon'=>'fa-solid fa-earth-americas'
                     ],
                     [

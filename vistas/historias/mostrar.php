@@ -41,7 +41,7 @@
     <tr>
         <td><?=$d['idhistorias_clinicas']?></td>
         <td><?=$d['fecha']?></td>
-        <td><?=$d['nomDoctor']?> <?=$d['apeDoctor']?></td>
+        <td>Dr. <?=$d['nomDoctor']?> <?=$d['apeDoctor']?></td>
         <td><?=$d['observaciones']?></td>
 
         <td>

@@ -1,4 +1,5 @@
 <?php
+require_once './assets/Helper.php';
 date_default_timezone_set('America/Lima');
 
 $ahora = time();
@@ -14,10 +15,13 @@ $hasta = $ahora + $unDiaEnSegundos*5;
     $desde=date("Y-m-d",$ahora);
     $hasta=date("Y-m-d",$hasta);
     
-    $idpaciente = isset ($data['idpeciente'])?$data['idpeciente']:"";
+    $idPaciente = isset ($data['idpaciente'])?$data['idpaciente']:$_GET['idpaciente'];
     $idpersonal = isset ($data['idpersonal'])?$data['idpersonal']:"";
     $observaciones = isset ($data['observaciones'])?$data['observaciones']:"";
     $idestados = isset ($data['idestados'])?$data['idestados']:"";
+    
+    $nombre = isset ($paciente['nombre'])?$paciente['nombre']:"";
+    $apellido = isset ($paciente['apellido'])?$paciente['apellido']:"";
 
 $editar = ($id != '')?1:0;  # 1: Editar / 0: Nuevo
 
@@ -26,11 +30,11 @@ $editar = ($id != '')?1:0;  # 1: Editar / 0: Nuevo
 ?>
     
     <form action="?ctrl=CtrlCita&accion=guardar" method="post">
-        id: <input class="form-control" type="text" name="id" value="<?=$id?>" readonly>
+        id: <input class="form-control" type="text" name="id" value="<?=$idPaciente?>">
         <div class="row">
             <div class="col">
                 Nombre: 
-                <input readonly class="form-control" type="text" name="nombre" value="<?=$_SESSION['nombre']?>">
+                <input class="form-control" type="text" name="nombre" value="<?=$nombre?>">
             </div>
 
         </div>
@@ -65,5 +69,3 @@ $editar = ($id != '')?1:0;  # 1: Editar / 0: Nuevo
         <br>
         <input class="form-control btn btn-success" type="submit" value="Guardar">
     </form>
-
-    <a href="?ctrl=CtrlCita">Retornar</a>

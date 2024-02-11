@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-02-2024 a las 17:07:25
+-- Tiempo de generación: 11-02-2024 a las 17:08:23
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -96,7 +96,8 @@ INSERT INTO `citas` (`idcitas`, `fecha`, `observaciones`, `idestados`, `idpacien
 (27, '2023-11-11 08:30:00', 'Cita a ciegas', 1, 4, 2),
 (28, '2023-11-17 10:00:00', 'Extracción', 1, 4, 2),
 (29, '2023-11-17 11:00:00', 'Permiso por Salud', 1, 4, 2),
-(30, '2023-11-16 07:00:00', 'Extracción002', 1, 4, 2);
+(30, '2023-11-16 07:00:00', 'Extracción002', 1, 4, 2),
+(37, '2024-02-01 10:52:37', 'Ninguno', 1, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,19 @@ CREATE TABLE `comprobante_pago` (
 --
 
 INSERT INTO `comprobante_pago` (`idpago`, `numero`, `fecha`, `total`, `idcomprobante`, `idtipo_comprobantes`, `idpagos`, `idpersonas`, `idpersonas1`) VALUES
-(4, 'T-00000001', '2024-02-09 11:04:57', 550.00, 3, 2, 1, 6, 0);
+(4, 'T-00000001', '2024-02-09 11:04:57', 550.00, 3, 2, 1, 6, 0),
+(5, 'T-00000002', '2024-02-09 13:43:35', 160.00, 3, 2, 1, 6, 0),
+(6, 'T-00000003', '2024-02-09 13:45:27', 60.00, 3, 2, 1, 4, 0),
+(7, 'T-00000004', '2024-02-09 20:15:15', 160.00, 3, 2, 1, 4, 0),
+(8, 'T-00000005', '2024-02-09 20:26:41', 200.00, 3, 2, 1, 1, 0),
+(10, 'T-00000006', '2024-02-10 13:36:34', 280.00, 3, 2, 1, 4, 0),
+(12, 'T-00000007', '2024-02-10 22:17:45', 145.00, 3, 2, 1, 4, 0),
+(13, 'T-00000008', '2024-02-10 23:15:51', 325.00, 3, 2, 1, 4, 0),
+(14, 'T-00000009', '2024-02-11 09:14:21', 195.00, 3, 2, 1, 4, 0),
+(15, 'T-00000010', '2024-02-11 10:26:00', 245.00, 3, 2, 1, 11, 0),
+(16, 'T-00000011', '2024-02-11 10:27:12', 295.00, 3, 2, 1, 12, 0),
+(17, 'T-00000012', '2024-02-11 10:27:27', 180.00, 3, 2, 1, 12, 0),
+(19, 'T-00000013', '2024-02-11 10:51:40', 25.00, 3, 2, 1, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -145,7 +158,31 @@ CREATE TABLE `detalles_comprobante` (
 
 INSERT INTO `detalles_comprobante` (`iddetalles_comprobante`, `precio`, `descuento`, `cantidad`, `igv`, `idpago`, `idservicio`) VALUES
 (1, 150.00, 0.00, 3, 0.00, 4, 3),
-(2, 50.00, 0.00, 2, 0.00, 4, 2);
+(2, 50.00, 0.00, 2, 0.00, 4, 2),
+(3, 60.00, 0.00, 1, 0.00, 5, 1),
+(4, 50.00, 0.00, 2, 0.00, 5, 2),
+(5, 60.00, 0.00, 1, 0.00, 6, 1),
+(6, 60.00, 0.00, 1, 0.00, 7, 1),
+(7, 50.00, 0.00, 2, 0.00, 7, 2),
+(8, 50.00, 0.00, 1, 0.00, 8, 2),
+(9, 150.00, 0.00, 1, 0.00, 8, 3),
+(10, 50.00, 0.00, 2, 0.00, 10, 2),
+(11, 60.00, 0.00, 3, 0.00, 10, 1),
+(12, 25.00, 0.00, 1, 0.00, 12, 0),
+(13, 60.00, 0.00, 2, 0.00, 12, 1),
+(14, 25.00, 0.00, 1, 0.00, 13, 0),
+(15, 150.00, 0.00, 2, 0.00, 13, 3),
+(16, 25.00, 0.00, 1, 0.00, 14, 0),
+(17, 60.00, 0.00, 2, 0.00, 14, 1),
+(18, 50.00, 0.00, 1, 0.00, 14, 2),
+(19, 25.00, 0.00, 1, 0.00, 15, 0),
+(20, 60.00, 0.00, 2, 0.00, 15, 1),
+(21, 50.00, 0.00, 2, 0.00, 15, 2),
+(22, 25.00, 0.00, 1, 0.00, 16, 0),
+(23, 60.00, 0.00, 2, 0.00, 16, 1),
+(24, 50.00, 0.00, 3, 0.00, 16, 2),
+(25, 60.00, 0.00, 3, 0.00, 17, 1),
+(26, 25.00, 0.00, 1, 0.00, 19, 0);
 
 -- --------------------------------------------------------
 
@@ -156,8 +193,23 @@ INSERT INTO `detalles_comprobante` (`iddetalles_comprobante`, `precio`, `descuen
 CREATE TABLE `dientes` (
   `iddientes` int(11) NOT NULL,
   `ubicacion` int(11) DEFAULT NULL,
-  `nombre` varchar(15) DEFAULT NULL
+  `nombre` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `dientes`
+--
+
+INSERT INTO `dientes` (`iddientes`, `ubicacion`, `nombre`) VALUES
+(1, 1, 'Tercer Molar Derecho'),
+(2, 2, 'Segundo Molar Derecho'),
+(3, 3, 'Primer Molar Derecho'),
+(4, 4, 'Segundo Premolar Derecho'),
+(5, 5, 'Primer Premolar Derecho'),
+(6, 6, 'Canino Derecho'),
+(7, 7, 'Incisivo Central Derecho'),
+(8, 8, 'Incisivo Central Derecho'),
+(9, 8, 'Incisivo Central Derecho');
 
 -- --------------------------------------------------------
 
@@ -258,7 +310,20 @@ CREATE TABLE `historias_clinicas` (
 INSERT INTO `historias_clinicas` (`idhistorias_clinicas`, `fecha`, `observaciones`, `idpaciente`, `iddoctor`, `enfermedades`, `alergias`, `presion`, `sensibilidad`, `temperatura`, `gestacion`) VALUES
 (1, '2023-10-13 23:24:54', '-', 6, 1, '-', '-', 80, '-', 37.50, '-'),
 (6, '2024-02-10 00:00:00', 'No', 6, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
-(7, '2024-02-09 00:00:00', 'No', 1, 2, 'No', 'No', 0, 'on', 37.00, 'no');
+(7, '2024-02-09 00:00:00', 'No', 1, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
+(8, '2024-02-10 00:00:00', 'No', 4, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
+(9, '0000-00-00 00:00:00', 'No', 4, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
+(10, '2024-02-02 00:00:00', 'No', 16, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
+(11, '2024-02-05 00:00:00', 'No', 16, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
+(12, '2024-01-28 00:00:00', 'No', 12, 2, 'No', 'No', 0, 'on', 36.00, 'no'),
+(13, '2024-01-18 00:00:00', 'No', 11, 2, 'No', 'No', 0, 'on', 36.00, 'no'),
+(14, '2023-12-20 00:00:00', 'No', 11, 2, 'No', 'No', 0, 'on', 36.00, 'no'),
+(15, '2023-12-20 00:00:00', 'No', 4, 2, 'No', 'No', 0, 'on', 36.00, 'no'),
+(16, '2023-12-20 00:00:00', 'No', 1, 2, 'No', 'No', 0, 'on', 36.00, 'no'),
+(17, '2024-01-31 00:00:00', 'No', 3, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
+(18, '2024-01-28 00:00:00', 'No', 6, 2, 'No', 'No', 0, 'on', 37.00, 'no'),
+(19, '2024-01-09 00:00:00', 'No', 4, 0, 'No', 'No', 0, 'on', 37.00, 'no'),
+(20, '2024-01-09 00:00:00', 'No', 4, 0, 'No', 'No', 0, 'on', 37.00, 'no');
 
 -- --------------------------------------------------------
 
@@ -292,10 +357,15 @@ CREATE TABLE `paciente` (
 
 INSERT INTO `paciente` (`idpersonas`, `idtipo_paciente`) VALUES
 (1, 2),
+(3, 2),
 (4, 2),
 (6, 2),
 (11, 2),
-(12, 2);
+(12, 2),
+(16, 2),
+(17, 2),
+(18, 2),
+(20, 2);
 
 -- --------------------------------------------------------
 
@@ -314,7 +384,7 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`idpersonas`, `colegiatura`, `idtipo`) VALUES
-(0, '111123', 2),
+(0, '', 2),
 (1, 'A-999', 1),
 (2, 'asasasa', 2),
 (3, '124578', 2),
@@ -347,7 +417,7 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`idpersonas`, `nombre`, `apellido`, `dni`, `direccion`, `fecha_nacimiento`, `telefono`, `correo`, `usuario`, `clave`, `fecha_alta`, `estados_idestados`, `idsexos`) VALUES
-(0, 'Doctor', '', '', '', '0000-00-00', '', 'doctor@gmail.com', 'Doctor1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
+(0, 'Henrryque', 'Avalos Valdivia', '04422478', 'Piura Pj. 06', '1970-06-19', '987541478', 'doctor@gmail.com', 'Doctor1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
 (1, 'Carlitos', 'Flores', '12345678', 'Av. Bolivar 123', '2000-05-10', '95214578', 'carlitos@gmail.com', 'carlitos', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 2),
 (2, 'Juan', 'Perez', '24578956', 'Balta 2332', '2023-10-01', '95587788', 'juan@gmail.com', 'juan', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 1),
 (3, 'Mario', 'Montero', '24589865', 'Las Bugambillas 332', '1985-05-15', '99985478', 'mario@gmail.com', 'mario', '1234', '2023-09-11 00:00:00', 1, 2),
@@ -355,8 +425,13 @@ INSERT INTO `personas` (`idpersonas`, `nombre`, `apellido`, `dni`, `direccion`, 
 (6, 'Walter', 'Coayla', '11145678', 'Asoc. José Olaya Ñ-49', '2000-01-01', '990220266', 'walter.coayla@gmail.com', 'walter', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 2),
 (11, 'Roberto', 'Ramirez', '87654321', 'Bolivar 3423', '2023-10-02', '95959856', 'rramirez@gmail.com', 'roberto', '123456', '2023-10-23 23:58:46', 2, 2),
 (12, 'Rosa', 'Rivera', '45454521', 'Su Casa', '2023-10-04', '123123123', 'rosa@gmail.com', 'rosa', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
-(13, 'Admin', '', '', '', '0000-00-00', '', 'admin@gmail.com', 'Admin1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
-(15, 'Paciente', '', '', '', '0000-00-00', '', 'paciente@gmail.com', 'Paciente1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3);
+(13, 'Admin', 'N', '00000000', 'N', '0000-00-00', '', 'admin@gmail.com', 'Admin1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
+(15, 'Paciente', 'N', '00000000', 'N', '0000-00-00', '', 'paciente@gmail.com', 'Paciente1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
+(16, 'Espenser ', 'Flores Causa', '73860174', 'Piura S/N', '1999-04-08', '987542654', 'espenser@gmail.com', 'Espenser1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
+(17, 'Fernando', 'Flores Causa', '74825145', 'Piura S/N', '1999-02-11', '987542654', 'fernando@gmail.com', 'Fernando1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
+(18, 'Miguel ', 'Sanches Huaranga', '72851425', 'Piura pasaje las Americas', '1997-02-12', '987564512', 'miguel@gmail.com', 'Miguel1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
+(19, 'Yoel', 'Mirando Prado', '74851478', 'Av. Piura 125', '2006-03-10', '987542689', 'yoel@gmail.com', 'yoel1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3),
+(20, 'Roues', 'Bardo Salina', '74154124', 'Calle las Americas', '1995-06-12', '987564789', 'roues@gmail.com', 'Roue1', 'c3949ba59abbe560adc3949ba', '0000-00-00 00:00:00', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -376,6 +451,7 @@ CREATE TABLE `servicios_odontologicos` (
 --
 
 INSERT INTO `servicios_odontologicos` (`idservicio`, `nombre`, `descripcion`, `precio`) VALUES
+(0, 'Consulta', 'Odontológica ', 25),
 (1, 'Extracción', 'Extracción de Muela', 60),
 (2, 'Endodoncia', 'Curación de Dientes', 50),
 (3, 'Corona', 'Corona de muelas', 150);
@@ -574,6 +650,29 @@ CREATE TABLE `v_comprobantepresupuesto` (
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `v_estadisticapacientes`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_estadisticapacientes` (
+`idpersonas` int(11)
+,`monto` decimal(34,2)
+,`cantidad` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_estadisticas_citas`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_estadisticas_citas` (
+`idpaciente` int(11)
+,`cantidad` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura Stand-in para la vista `v_historias_clinicas`
 -- (Véase abajo para la vista actual)
 --
@@ -725,6 +824,24 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_comprobantepresupuesto`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_comprobantepresupuesto`  AS SELECT `vp`.`idpersonas` AS `idpersonas`, `vp`.`nombre` AS `nombre`, `vp`.`apellido` AS `apellido`, `vp`.`dni` AS `dni`, `vp`.`sexo` AS `sexo`, `vp`.`tipo` AS `tipo`, `cp`.`idpago` AS `idpago`, `cp`.`numero` AS `numero`, `cp`.`fecha` AS `fecha`, `cp`.`total` AS `total` FROM (`v_pacientes` `vp` left join `comprobante_pago` `cp` on(`vp`.`idpersonas` = `cp`.`idpersonas`)) WHERE `cp`.`idtipo_comprobantes` = 0 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_estadisticapacientes`
+--
+DROP TABLE IF EXISTS `v_estadisticapacientes`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_estadisticapacientes`  AS SELECT `cp`.`idpersonas` AS `idpersonas`, sum(`cp`.`total`) AS `monto`, count(`cp`.`idpago`) AS `cantidad` FROM `comprobante_pago` AS `cp` GROUP BY `cp`.`idpersonas` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_estadisticas_citas`
+--
+DROP TABLE IF EXISTS `v_estadisticas_citas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_estadisticas_citas`  AS SELECT `citas`.`idpaciente` AS `idpaciente`, count(`citas`.`idpaciente`) AS `cantidad` FROM `citas` GROUP BY `citas`.`idpaciente` ;
 
 -- --------------------------------------------------------
 
@@ -945,25 +1062,25 @@ ALTER TABLE `auditoria`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `idcitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `idcitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `comprobante_pago`
 --
 ALTER TABLE `comprobante_pago`
-  MODIFY `idpago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idpago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `detalles_comprobante`
 --
 ALTER TABLE `detalles_comprobante`
-  MODIFY `iddetalles_comprobante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `iddetalles_comprobante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `dientes`
 --
 ALTER TABLE `dientes`
-  MODIFY `iddientes` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iddientes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`
@@ -993,7 +1110,7 @@ ALTER TABLE `formas_pagos`
 -- AUTO_INCREMENT de la tabla `historias_clinicas`
 --
 ALTER TABLE `historias_clinicas`
-  MODIFY `idhistorias_clinicas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idhistorias_clinicas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `odontogramas`
@@ -1005,13 +1122,13 @@ ALTER TABLE `odontogramas`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `idpersonas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idpersonas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios_odontologicos`
 --
 ALTER TABLE `servicios_odontologicos`
-  MODIFY `idservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sesion_profilaxis`

@@ -2,6 +2,7 @@
 session_start();
 require_once './core/Controlador.php';
 require_once './modelo/Cita.php';
+require_once './modelo/Paciente.php';
 class CtrlCita extends Controlador
 {
     public function index(){
@@ -13,15 +14,15 @@ class CtrlCita extends Controlador
 
         $obj= new Cita();
 
-        $respuesta = $obj->getCitas();
+        $respuesta = $obj->listar();
 
         $msg = $respuesta['msg'];
         // var_dump($respuesta);exit;
         $datos = [
-                'titulo'=>"Registro de dientes",
+                'titulo'=>"Registro de Citas",
                 'data'=>$respuesta['data']
             ];
-        $contenido=$this->mostrar('citas/calendario.php',$datos,true);
+        $contenido=$this->mostrar('citas/listarCitas01.php',$datos,true);
         $data = [
             'titulo'=>'Registro de Citas',
             'contenido'=>$contenido,
@@ -45,6 +46,12 @@ class CtrlCita extends Controlador
 
     }
     public function nuevo(){
+
+        $id = $_GET['idpaciente'];
+        $paciente = (new Paciente($id))->getOne()['data'][0];
+        $datos = [
+            'paciente'=>$paciente
+        ];
         $this->mostrar('citas/formularioCita.php');
     }
     public function editar(){
@@ -62,6 +69,8 @@ class CtrlCita extends Controlador
     }
 
     public function guardar(){
+        $id=$_POST['id'];
+        $nombre=$_POST['nombre'];
         $fecha = $_POST['fecharec'] . " ".$_POST['hora'];
         #var_dump($fecha); exit;
         $obj = new Cita (

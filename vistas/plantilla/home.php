@@ -102,7 +102,7 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Agenda</h6>
                                 </div>
-                                <div class="card-body">
+                                <!--<div class="card-body">
                                     <h1>Calendario</h1>
                                     <div>
                                         <table class="cbr00">
@@ -165,13 +165,13 @@
                                           </tr>
                                         </tbody>
                                       </table>
-                                    <!--<h4 class="small font-weight-bold">Configuracion de Cuenta <span
+                                    <h4 class="small font-weight-bold">Configuracion de Cuenta <span
                                             class="float-right">Agendas Registradas</span></h4>
                                     <div class="progress">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>-->
-                                </div>
+                                    </div>
+                                </div>-->
                             </div>
 
                         </div>

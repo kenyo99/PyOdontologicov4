@@ -28,6 +28,7 @@ class Cita extends Modelo{
 
     }
     public function listar(){
+        $this->setTabla($this->_vista);
         return $this->getAll();
     }
     public function getOne(){

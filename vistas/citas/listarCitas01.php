@@ -4,24 +4,19 @@
 
 ?>
     <center><h1 id="titulo"><?=$titulo?></h1></center>
-    <?php require_once './vistas/plantilla/dashboard01.php'; ?>
-    <h3>Paciente: <?=$paciente?></h3>
     
     <a href="#" class="btn btn-success nuevaCita">
         <i class="fa fa-plus-circle"></i> 
         Registrar nueva Cita
     </a>
-    <a href="#" class="btn btn-success" id="imprimirPDF">
-        <i class="fa fa-plus-circle"></i> 
-       Imprimir
-    </a>
     <h1>.</h1>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Id</th>
+            <th>Nº</th>
             <th>Fecha de Citas</th>
             <th>Detalle</th>
             <th>Estado</th>
+            <th>Nombre Paciente</th>
             <th>Atendido Por:</th>
            
             <th colspan="2">Opciones</th>
@@ -37,6 +32,7 @@
             <td><?=$d['fecha']?></td>
             <td><?=$d['observaciones']?></td>
             <td><?=$d['NomEstado']?></td>
+            <td><?=$d['NomPaciente']?> <?=$d['ApePaciente']?></td>
             <td>Dr. <?=$d['NomPersonal']?></td>
 
             <td>
